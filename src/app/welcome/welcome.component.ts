@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import {navigationMap} from '../app.config';
 
 @Component({
   selector: 'app-welcome',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
+  doRouting(){
+    this.router.navigate([navigationMap['q1:a:0']]);
+  }
 }

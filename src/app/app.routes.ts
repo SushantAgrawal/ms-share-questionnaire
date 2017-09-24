@@ -12,10 +12,16 @@ export const ROUTES : Routes = [
       path: 'welcome',
       component: WelcomeComponent
     }, {
-      path: 'question1',
+      path: 'q1a',
       component: Question1Component
     }, {
-      path: 'question2',
+      path: 'q1b',
+      component: Question2Component
+    }, {
+      path: 'q1c',
+      component: Question2Component
+    }, {
+      path: 'q3',
       component: Question2Component
     }
   ];
