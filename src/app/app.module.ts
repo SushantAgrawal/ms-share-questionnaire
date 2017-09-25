@@ -7,13 +7,18 @@ import {WelcomeComponent} from './welcome/welcome.component';
 import {Question1Component} from './question1/question1.component';
 import {Question2Component} from './question2/question2.component';
 import {ROUTES} from './app.routes';
+import {MdButtonModule, MdCheckboxModule} from '@angular/material';
+import {MdRadioModule,MdCardModule,MdListModule} from '@angular/material';
+import {MdGridListModule} from '@angular/material';
+import { Question4Component } from './question4/question4.component';
+import { Question3Component } from './question3/question3.component';
 
 @NgModule({
   declarations: [
-    AppComponent, WelcomeComponent, Question1Component, Question2Component
+    AppComponent, WelcomeComponent, Question1Component, Question2Component, Question3Component, Question4Component
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(ROUTES, {useHash: true})
+    BrowserModule, RouterModule.forRoot(ROUTES, {useHash: true}),MdButtonModule,MdGridListModule, MdCheckboxModule,MdRadioModule,MdCardModule,MdListModule
   ],
   providers: [MsShareService],
   bootstrap: [AppComponent]
