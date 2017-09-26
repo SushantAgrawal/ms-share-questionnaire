@@ -4,18 +4,41 @@ import {Subject} from 'rxjs/subject';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/filter';
+import {ActivatedRoute, Router} from '@angular/router';
+import {welcomeMap} from './app.config';
+
 @Injectable()
 export class MsShareService {
   //used to maintain a global object
-  global : any
+  global : any = {};
   subject : Subject < any >;
   urlMaps : {};
   messages = {
     idNotMappedToUrl: 'Message id is not mapped to http url in config.ts file at application root',
     httpGetUnknownError: 'Unknown error encountered while making http request'
-};
+  };
 
-  constructor(private http:Http) {}
+  constructor(private http : Http, private activatedRoute : ActivatedRoute, private router : Router) {
+    // Production 
+    // activatedRoute.queryParams.subscribe(params=>{
+    // this.set('queryParams',params); }); 
+    //development
+    (() => {
+      //values for answered are none, one, all
+      let sampleUrl = `http://localhost:4300?answered=none`;
+      let urlArray = sampleUrl.slice(sampleUrl.indexOf('?') + 1).split('&');
+      let urlObject = urlArray.reduce((prevValue, x, i) => {
+        let elementArray = x.split('=');
+        prevValue[elementArray[0]] = elementArray[1];
+        return (prevValue);
+      }, {});
+      this.set('queryParams', urlObject);
+    })();
+    
+    let answered = this.get('queryParams').answered;
+    router.navigate([welcomeMap[answered]]);
+  }
+
   get(id) {
     return (this.global[id]);
   }

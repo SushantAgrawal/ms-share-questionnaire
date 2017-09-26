@@ -1,5 +1,7 @@
 import {RouterModule, Routes} from '@angular/router';
-import {WelcomeComponent} from './welcome/welcome.component';
+import {WelcomeaComponent} from './welcomea/welcomea.component';
+import {WelcomebComponent} from './welcomeb/welcomeb.component';
+import {WelcomecComponent} from './welcomec/welcomec.component';
 import {Question1Component} from './question1/question1.component';
 import {Question2Component} from './question2/question2.component';
 import { Question4Component } from './question4/question4.component';
@@ -11,10 +13,18 @@ export const ROUTES : Routes = [
       redirectTo: 'welcome',
       pathMatch: 'full'
     }, {
-      path: 'welcome',
-      component: WelcomeComponent
+      path: 'welcomea',
+      component: WelcomeaComponent
     }, {
-      path: 'q1a',
+      path: 'welcomeb',
+      component: WelcomebComponent
+    }, {
+      path: 'welcomec',
+      component: WelcomecComponent
+    },
+    
+    {
+      path: 'question1',
       component: Question1Component
     }, {
       path: 'q1b',
