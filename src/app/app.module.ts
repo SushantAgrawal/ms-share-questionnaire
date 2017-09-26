@@ -21,6 +21,7 @@ import {Question3Component} from './question3/question3.component';
 import { WelcomeaComponent } from './welcomea/welcomea.component';
 import { WelcomebComponent } from './welcomeb/welcomeb.component';
 import { WelcomecComponent } from './welcomec/welcomec.component';
+import { GenericaComponent } from './generica/generica.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { WelcomecComponent } from './welcomec/welcomec.component';
     Question4Component,
     WelcomeaComponent,
     WelcomebComponent,
-    WelcomecComponent
+    WelcomecComponent,
+    GenericaComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(ROUTES, {useHash: true}),HttpModule,
