@@ -4,6 +4,8 @@ import {Question1Component} from './question1/question1.component';
 import {Question2Component} from './question2/question2.component';
 import { Question4Component } from './question4/question4.component';
 import { Question3Component } from './question3/question3.component';
+import { ScreeningQuestionsComponent } from './screening-questions/screening-questions.component';
+//ScreeningQuestionsComponent
 
 export const ROUTES : Routes = [
     {
@@ -25,5 +27,8 @@ export const ROUTES : Routes = [
     }, {
       path: 'q2',
       component: Question4Component
+    }, {
+      path: 'q3',
+      component: ScreeningQuestionsComponent
     }
   ];
