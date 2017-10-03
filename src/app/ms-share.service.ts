@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/filter';
 import {ActivatedRoute, Router} from '@angular/router';
-import {welcomeMap} from './app.config';
+import {welcomeMap,navMap} from './app.config';
 
 @Injectable()
 export class MsShareService {
@@ -19,6 +19,7 @@ export class MsShareService {
   };
 
   constructor(private http : Http, private activatedRoute : ActivatedRoute, private router : Router) {
+    this.set('navMap',navMap);
     // Production 
     // activatedRoute.queryParams.subscribe(params=>{
     // this.set('queryParams',params); }); 

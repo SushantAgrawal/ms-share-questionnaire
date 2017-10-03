@@ -1,0 +1,32 @@
+<md-card class="mainContainer">
+  <md-card-content>
+    <div *ngIf='descr1'>
+      <b>{{descr1}}</b>
+    </div>
+    <br/>
+    <div *ngIf='descr2'>
+      <b>{{descr2}}</b>
+    </div>
+  </md-card-content>
+  <p><b>{{sourceObject.text}}</b></p>
+  <div *ngIf="sourceObject.options">
+    <md-radio-button (change)="change($event)" [value]="option" name="group1" *ngFor="let option of sourceObject.options">{{option.text}}</md-radio-button>
+  </div>
+  <div *ngIf="sourceObject.sub">
+    <table>
+      <tr>
+        <th></th>
+        <th *ngFor="let option of sourceObject.sub[0].options">{{option.text}}</th>
+      </tr>
+      <tbody>
+        <tr *ngFor="let item of sourceObject.sub ; let g = index">
+          <td>{{item.text}}</td>
+          <td *ngFor="let option of sourceObject.sub[0].options">
+            <md-radio-button [name]='g' style="display:inline" (change)="change($event)" [value]="option"></md-radio-button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <app-navigate [selectedOption]="selectedOption"></app-navigate>
+</md-card>

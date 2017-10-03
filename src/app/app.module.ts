@@ -9,19 +9,27 @@ import {Question1Component} from './question1/question1.component';
 import {Question2Component} from './question2/question2.component';
 import {ROUTES} from './app.routes';
 import {
-  MdButtonModule,
+  // MdButtonModule,
   MdCheckboxModule,
   MdRadioModule,
   MdCardModule,
   MdListModule,
   MdGridListModule
 } from '@angular/material';
+import {AngularMaterialModule} from './angular-material/angular-material.module';
+
+
 import {Question4Component} from './question4/question4.component';
 import {Question3Component} from './question3/question3.component';
 import { WelcomeaComponent } from './welcomea/welcomea.component';
 import { WelcomebComponent } from './welcomeb/welcomeb.component';
 import { WelcomecComponent } from './welcomec/welcomec.component';
-import { GenericaComponent } from './generica/generica.component';
+import { Generic1Component } from './generic1/generic1.component';
+import { Q1aComponent } from './q1a/q1a.component';
+import { Q1bComponent } from './q1b/q1b.component';
+import { Q3Component } from './q3/q3.component';
+import { NavigateComponent } from './navigate/navigate.component';
+// import { Generic1Component } from './generic1/generic1.component';
 
 @NgModule({
   declarations: [
@@ -34,16 +42,22 @@ import { GenericaComponent } from './generica/generica.component';
     WelcomeaComponent,
     WelcomebComponent,
     WelcomecComponent,
-    GenericaComponent
+    // GenericaComponent,
+    Q1aComponent,
+    Q1bComponent,
+    Q3Component,
+    Generic1Component,
+    NavigateComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(ROUTES, {useHash: true}),HttpModule,
-    MdButtonModule,
+    // MdButtonModule,
     MdGridListModule,
     MdCheckboxModule,
     MdRadioModule,
     MdCardModule,
-    MdListModule
+    MdListModule,
+    AngularMaterialModule
   ],
   providers: [MsShareService],
   bootstrap: [AppComponent]
