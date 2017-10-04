@@ -13,23 +13,28 @@ export const navMap = {
             {
                 text: `I can walk without any problem`,
                 score: 0,
-                jumpTo: 'q3'
+                jumpTo: 'q3',
+                qx_text:`Which of the following best describes your ability to walk?`
             }, {
                 text: `I have some difficulties with walking, but can walk without aid`,
                 score: 1,
-                jumpTo: 'q1b'
+                jumpTo: 'q1b',
+                qx_text:`Which of the following best describes your ability to walk?`
             }, {
                 text: `I require a cane, crutch, or other aid to walk`,
                 score: 2,
-                jumpTo: 'q1c'
+                jumpTo: 'q1c',
+                qx_text:`Which of the following best describes your ability to walk?`
             }, {
                 text: `I require a wheelchair for almost all activities`,
                 score: 3,
-                jumpTo: 'q3'
+                jumpTo: 'q3',
+                qx_text:`Which of the following best describes your ability to walk?`
             }, {
                 text: `I am confined to bed most of the time`,
                 score: 4,
-                jumpTo: 'q3'
+                jumpTo: 'q3',
+                qx_text:`Which of the following best describes your ability to walk?`
             }
         ]
     },
@@ -39,19 +44,23 @@ export const navMap = {
             {
                 text: `More than 1500 feet, 500 meters or about five football fields`,
                 score: 0,
-                jumpTo: 'q2'
+                jumpTo: 'q2',
+                qx_text:`How far can you walk without needing to use an aid (cane, crutch, walker)?`
             }, {
                 text: `About 900 to 1500 feet, 300 meters or about 3 football fields`,
                 score: 1,
-                jumpTo: 'q2'
+                jumpTo: 'q2',
+               qx_text:`How far can you walk without needing to use an aid (cane, crutch, walker)?`
             }, {
                 text: `About 600 to 899 feet, 200 meters or about 2 football fields`,
                 score: 2,
-                jumpTo: 'q2'
+                jumpTo: 'q2',
+                qx_text:`How far can you walk without needing to use an aid (cane, crutch, walker)?`
             }, {
                 text: `About 300 to 599 feet, 100 meters or about 1 football field`,
                 score: 3,
-                jumpTo: 'q2'
+                jumpTo: 'q2',
+                qx_text:`How far can you walk without needing to use an aid (cane, crutch, walker)?`
             }
         ]
     },
@@ -61,23 +70,28 @@ export const navMap = {
             {
                 text: `About 300 to 400 feet, 120 meters or about 1 football field`,
                 score: 0,
-                jumpTo: 'q2'
+                jumpTo: 'q2',
+                 qx_text:`When I use an aid (cane, crutch, walker), I can walk:`
             }, {
                 text: `About 150 to 299 feet or 50 meters`,
                 score: 1,
-                jumpTo: 'q2'
+                jumpTo: 'q2',
+                qx_text:`When I use an aid (cane, crutch, walker), I can walk:`
             }, {
                 text: `About 50 to 149 feet or 20 meters`,
                 score: 2,
-                jumpTo: 'q2'
+                jumpTo: 'q2',
+                qx_text:`When I use an aid (cane, crutch, walker), I can walk:`
             }, {
                 text: `About 15 to 50 feet or 20 meters`,
                 score: 3,
-                jumpTo: 'q2'
+                jumpTo: 'q2',
+                qx_text:`When I use an aid (cane, crutch, walker), I can walk:`
             }, {
                 text: `Less than 15 feet or 5 meters`,
                 score: 4,
-                jumpTo: 'q2'
+                jumpTo: 'q2',
+                qx_text:`When I use an aid (cane, crutch, walker), I can walk:`
             }
         ]
     },
@@ -91,23 +105,28 @@ export const navMap = {
                     {
                         text: `Never or rarely`,
                         score: 0,
-                        jumpTo: 'q3'
+                        jumpTo: 'q3',
+                        qx_text:`A cane, crutch, or someone to hold on to.`
                     }, {
                         text: `Sometimes`,
                         score: 1,
-                        jumpTo: 'q3'
+                        jumpTo: 'q3',
+                        qx_text:`A cane, crutch, or someone to hold on to.`
                     }, {
                         text: `Less than half the time`,
                         score: 2,
-                        jumpTo: 'q3'
+                        jumpTo: 'q3',
+                        qx_text:`A cane, crutch, or someone to hold on to.`
                     }, {
                         text: `More than half the time`,
                         score: 3,
-                        jumpTo: 'q3'
+                        jumpTo: 'q3',
+                        qx_text:`A cane, crutch, or someone to hold on to.`
                     }, {
                         text: `All the time or almost all of the time`,
                         score: 4,
-                        jumpTo: 'q3'
+                        jumpTo: 'q3',
+                        qx_text:`A cane, crutch, or someone to hold on to.`
                     }
                 ]
             }, {
@@ -116,23 +135,28 @@ export const navMap = {
                     {
                         text: `Never or rarely`,
                         score: 0,
-                        jumpTo: 'q3'
+                        jumpTo: 'q3',
+                        qx_text:`A walker or other bilateral support.`
                     }, {
                         text: `Sometimes`,
                         score: 1,
-                        jumpTo: 'q3'
+                        jumpTo: 'q3',
+                        qx_text:`A walker or other bilateral support.`
                     }, {
                         text: `Less than half the time`,
                         score: 2,
-                        jumpTo: 'q3'
+                        jumpTo: 'q3',
+                        qx_text:`A walker or other bilateral support.`
                     }, {
                         text: `More than half the time`,
                         score: 3,
-                        jumpTo: 'q3'
+                        jumpTo: 'q3',
+                        qx_text:`A walker or other bilateral support.`
                     }, {
                         text: `All the time or almost all of the time`,
                         score: 4,
-                        jumpTo: 'q3'
+                        jumpTo: 'q3',
+                        qx_text:`A walker or other bilateral support.`
                     }
                 ]
             }, {
@@ -141,23 +165,28 @@ export const navMap = {
                     {
                         text: `Never or rarely`,
                         score: 0,
-                        jumpTo: 'q3'
+                        jumpTo: 'q3',
+                        qx_text:`A wheelchair.`
                     }, {
                         text: `Sometimes`,
                         score: 1,
-                        jumpTo: 'q3'
+                        jumpTo: 'q3',
+                        qx_text:`A wheelchair.`
                     }, {
                         text: `Less than half the time`,
                         score: 2,
-                        jumpTo: 'q3'
+                        jumpTo: 'q3',
+                        qx_text:`A wheelchair.`
                     }, {
                         text: `More than half the time`,
                         score: 3,
-                        jumpTo: 'q3'
+                        jumpTo: 'q3',
+                        qx_text:`A wheelchair.`
                     }, {
                         text: `All the time or almost all of the time`,
                         score: 4,
-                        jumpTo: 'q3'
+                        jumpTo: 'q3',
+                        qx_text:`A wheelchair.`
                     }
                 ]
             }
@@ -174,11 +203,13 @@ export const navMap = {
                     {
                         text: `Yes`,
                         score: 1,
-                        jumpTo: 'q4'
+                        jumpTo: 'q4',
+                        qx_text: `Change in feeling (e.g. tingling, numbness) in hands, feet, arms or legs?`
                     }, {
                         text: `No`,
                         score: 0,
-                        jumpTo: 'q4'
+                        jumpTo: 'q5',
+                        qx_text: `Change in feeling (e.g. tingling, numbness) in hands, feet, arms or legs?`
                     }
                 ]
             }, {
@@ -187,11 +218,13 @@ export const navMap = {
                     {
                         text: `Yes`,
                         score: 1,
-                        jumpTo: 'q5'
+                        jumpTo: 'q5',
+                        qx_text: `Weakness in arms or legs?`
                     }, {
                         text: `No`,
                         score: 0,
-                        jumpTo: 'q5'
+                        jumpTo: 'q5',
+                        qx_text: `Weakness in arms or legs?`
                     }
                 ]
             }, {
@@ -200,11 +233,13 @@ export const navMap = {
                     {
                         text: `Yes`,
                         score: 1,
-                        jumpTo: 'q6'
+                        jumpTo: 'q6',
+                        qx_text: `Spasms (brief muscle contractions) or stiffness (spasticity) in arms or legs?`
                     }, {
                         text: `No`,
                         score: 0,
-                        jumpTo: 'q6'
+                        jumpTo: 'q6',
+                        qx_text: `Spasms (brief muscle contractions) or stiffness (spasticity) in arms or legs?`
                     }
                 ]
             }, {
@@ -213,11 +248,13 @@ export const navMap = {
                     {
                         text: `Yes`,
                         score: 1,
-                        jumpTo: 'q7'
+                        jumpTo: 'q7',
+                        qx_text: `Swaying or losing balance when sitting, standing, or walking?`
                     }, {
                         text: `No`,
                         score: 0,
-                        jumpTo: 'q7'
+                        jumpTo: 'q7',
+                        qx_text: `Swaying or losing balance when sitting, standing, or walking?`
                     }
                 ]
             }, {
@@ -226,11 +263,13 @@ export const navMap = {
                     {
                         text: `Yes`,
                         score: 1,
-                        jumpTo: 'q8'
+                        jumpTo: 'q8',
+                        qx_text: `Clumsiness or tremors in arms or legs?`
                     }, {
                         text: `No`,
                         score: 0,
-                        jumpTo: 'q8'
+                        jumpTo: 'q8',
+                        qx_text: `Clumsiness or tremors in arms or legs?`
                     }
                 ]
             }, {
@@ -239,11 +278,13 @@ export const navMap = {
                     {
                         text: `Yes`,
                         score: 1,
-                        jumpTo: 'q9'
+                        jumpTo: 'q9',
+                        qx_text: `Weakness of muscles in your face?`
                     }, {
                         text: `No`,
                         score: 0,
-                        jumpTo: 'q9'
+                        jumpTo: 'q9',
+                        qx_text: `Weakness of muscles in your face?`
                     }
                 ]
             }, {
@@ -252,11 +293,13 @@ export const navMap = {
                     {
                         text: `Yes`,
                         score: 1,
-                        jumpTo: 'q10'
+                        jumpTo: 'q10',
+                        qx_text: `Numbness in your face?`
                     }, {
                         text: `No`,
                         score: 0,
-                        jumpTo: 'q10'
+                        jumpTo: 'q10',
+                        qx_text: `Numbness in your face?`
                     }
                 ]
             }, {
@@ -265,11 +308,13 @@ export const navMap = {
                     {
                         text: `Yes`,
                         score: 1,
-                        jumpTo: 'q11'
+                        jumpTo: 'q11',
+                        qx_text: `Blurry vision or blind spots?`
                     }, {
                         text: `No`,
                         score: 0,
-                        jumpTo: 'q11'
+                        jumpTo: 'q11',
+                        qx_text: `Blurry vision or blind spots?`
                     }
                 ]
             }, {
@@ -278,11 +323,13 @@ export const navMap = {
                     {
                         text: `Yes`,
                         score: 1,
-                        jumpTo: 'q12'
+                        jumpTo: 'q12',
+                        qx_text: `Double vision?`
                     }, {
                         text: `No`,
                         score: 0,
-                        jumpTo: 'q12'
+                        jumpTo: 'q12',
+                        qx_text: `Double vision?`
                     }
                 ]
             }, {
@@ -291,11 +338,13 @@ export const navMap = {
                     {
                         text: `Yes`,
                         score: 1,
-                        jumpTo: 'q13'
+                        jumpTo: 'q13',
+                        qx_text: `Problems with hearing?`
                     }, {
                         text: `No`,
                         score: 0,
-                        jumpTo: 'q13'
+                        jumpTo: 'q13',
+                        qx_text: `Problems with hearing?`
                     }
                 ]
             }, {
@@ -304,11 +353,13 @@ export const navMap = {
                     {
                         text: `Yes`,
                         score: 1,
-                        jumpTo: 'q14'
+                        jumpTo: 'q14',
+                        qx_text: `Problems with voice?`
                     }, {
                         text: `No`,
                         score: 0,
-                        jumpTo: 'q14'
+                        jumpTo: 'q14',
+                        qx_text: `Problems with voice?`
                     }
                 ]
             }, {
@@ -317,11 +368,13 @@ export const navMap = {
                     {
                         text: `Yes`,
                         score: 1,
-                        jumpTo: 'q15'
+                        jumpTo: 'q15',
+                        qx_text: `Problems with swallowing?`
                     }, {
                         text: `No`,
                         score: 0,
-                        jumpTo: 'q15'
+                        jumpTo: 'q15',
+                        qx_text: `Problems with swallowing?`
                     }
                 ]
             }, {
@@ -330,11 +383,13 @@ export const navMap = {
                     {
                         text: `Yes`,
                         score: 1,
-                        jumpTo: 'q16'
+                        jumpTo: 'q16',
+                        qx_text:''
                     }, {
                         text: `No`,
                         score: 0,
-                        jumpTo: 'q16'
+                        jumpTo: 'q16',
+                        qx_text:''
                     }
                 ]
             }, {
@@ -343,11 +398,13 @@ export const navMap = {
                     {
                         text: `Yes`,
                         score: 1,
-                        jumpTo: 'q17'
+                        jumpTo: 'q17',
+                        qx_text:''
                     }, {
                         text: `No`,
                         score: 0,
-                        jumpTo: 'q17'
+                        jumpTo: 'q17',
+                        qx_text:''
                     }
                 ]
             }, {
@@ -356,11 +413,13 @@ export const navMap = {
                     {
                         text: `Yes`,
                         score: 1,
-                        jumpTo: 'q19'
+                        jumpTo: 'q19',
+                        qx_text:''
                     }, {
                         text: `No`,
                         score: 0,
-                        jumpTo: 'q19'
+                        jumpTo: 'q19',
+                        qx_text:''
                     }
                 ]
             }, {
@@ -369,11 +428,13 @@ export const navMap = {
                     {
                         text: `Yes`,
                         score: 1,
-                        jumpTo: 'q20'
+                        jumpTo: 'q20',
+                        qx_text:''
                     }, {
                         text: `No`,
                         score: 0,
-                        jumpTo: 'q20'
+                        jumpTo: 'q20',
+                        qx_text:''
                     }
                 ]
             }
@@ -479,6 +540,111 @@ export const navMap = {
                     },
                     {
                         text: `Feeling is very poor or completely gone`,
+                        score:4
+                    },
+                ]
+            }
+        ]
+    },
+    q5: {
+        text: `In general, how much strength do you have to raise each arm and leg in the air?`,
+        sub: [
+            {
+                text: `a. Right Arm`,
+                options: [
+                    {
+                        text: `I can easily raise it and keep it raised`,
+                        score:0
+                    },
+                    {
+                        text: `I have to make  some effort to raise limb it`,
+                        score:1
+                    },
+                    {
+                        text: `I can barely raise it`,
+                        score:2
+                    },
+                    {
+                        text: `I can move my limb, but I cannot raise it`,
+                        score:3
+                    },
+                    {
+                        text: `I cannot move it at all`,
+                        score:4
+                    },
+                ]
+            },
+            {
+                text: `b. Left Arm`,
+                options: [
+                    {
+                        text: `I can easily raise it and keep it raised`,
+                        score:0
+                    },
+                    {
+                        text: `I have to make  some effort to raise limb it`,
+                        score:1
+                    },
+                    {
+                        text: `I can barely raise it`,
+                        score:2
+                    },
+                    {
+                        text: `I can move my limb, but I cannot raise it`,
+                        score:3
+                    },
+                    {
+                        text: `I cannot move it at all`,
+                        score:4
+                    },
+                ]
+            },
+            {
+                text: `c. Right Leg`,
+                options: [
+                    {
+                        text: `I can easily raise it and keep it raised`,
+                        score:0
+                    },
+                    {
+                        text: `I have to make  some effort to raise limb it`,
+                        score:1
+                    },
+                    {
+                        text: `I can barely raise it`,
+                        score:2
+                    },
+                    {
+                        text: `I can move my limb, but I cannot raise it`,
+                        score:3
+                    },
+                    {
+                        text: `I cannot move it at all`,
+                        score:4
+                    },
+                ]
+            },
+            {
+                text: `d. Left Leg`,
+                options: [
+                    {
+                        text: `I can easily raise it and keep it raised`,
+                        score:0
+                    },
+                    {
+                        text: `I have to make  some effort to raise limb it`,
+                        score:1
+                    },
+                    {
+                        text: `I can barely raise it`,
+                        score:2
+                    },
+                    {
+                        text: `I can move my limb, but I cannot raise it`,
+                        score:3
+                    },
+                    {
+                        text: `I cannot move it at all`,
                         score:4
                     },
                 ]

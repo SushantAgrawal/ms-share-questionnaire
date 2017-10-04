@@ -1,14 +1,20 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {navMap} from '../app.config';
+import {responses} from '../responses'
+
 @Component({selector: 'app-generic1', templateUrl: './generic1.component.html', styleUrls: ['./generic1.component.css']})
+
 export class Generic1Component implements OnInit {
   sourceName : string;
   selectedOption : any;
   sourceObject : any;
   descr1 : string;
   descr2 : string;
+  results: responses[] = new Array<responses>();
+  res : responses;
   constructor(private router : Router, private route : ActivatedRoute) {
+    debugger;
     route
       .params
       .subscribe(param => {
@@ -25,7 +31,8 @@ export class Generic1Component implements OnInit {
 
   ngOnInit() {}
 
-  next() {
+ /* next() {
+    
     if(this.selectedOption.options){
       this
       .router
@@ -36,9 +43,12 @@ export class Generic1Component implements OnInit {
       .navigate(['generic1', this.selectedOption.jumpTo]);
     }
     
-  }
+  }*/
 
-  change(event) {
+  change(event) {  
+    this.res  = new responses('0',event.value.qx_text,event.value.text,event.value.score);   
+    this.results.push(this.res);
+    debugger;    
     this.selectedOption = event.value;
   }
 }
