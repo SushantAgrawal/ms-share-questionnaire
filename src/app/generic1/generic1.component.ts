@@ -14,7 +14,6 @@ export class Generic1Component implements OnInit {
   results: responses[] = new Array<responses>();
   res : responses;
   constructor(private router : Router, private route : ActivatedRoute) {
-    debugger;
     route
       .params
       .subscribe(param => {
@@ -31,7 +30,7 @@ export class Generic1Component implements OnInit {
 
   ngOnInit() {}
 
- /* next() {
+  next() {
     
     if(this.selectedOption.options){
       this
@@ -43,12 +42,13 @@ export class Generic1Component implements OnInit {
       .navigate(['generic1', this.selectedOption.jumpTo]);
     }
     
-  }*/
+  }
 
   change(event) {  
+     // added by saby -start
     this.res  = new responses('0',event.value.qx_text,event.value.text,event.value.score);   
     this.results.push(this.res);
-    debugger;    
+     // added by saby -end
     this.selectedOption = event.value;
   }
 }

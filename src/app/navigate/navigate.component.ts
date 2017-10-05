@@ -4,16 +4,18 @@ import {navMap} from '../app.config';
 @Component({selector: 'app-navigate', templateUrl: './navigate.component.html', styleUrls: ['./navigate.component.css']})
 export class NavigateComponent implements OnInit {
   // @Input()sourceName : string;
-  debugger;
+ // debugger;
   @Input()selectedOption : any;
+  // added by saby -start
   @Input()resultSet: any;
+   // added by saby -end
   constructor(private router : Router) {}
 
   ngOnInit() {}
 
   next() {
-    debugger;
-     console.log('navigate component input:', this.resultSet);
+   // debugger;
+    // console.log('navigate component input:', this.resultSet);
     this.selectedOption.jumpTo && this
       .router
       .navigate(['generic1', this.selectedOption.jumpTo]);

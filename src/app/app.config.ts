@@ -3,7 +3,7 @@ export const welcomeMap = {
     one: 'welcomeb',
     all: 'welcomec'
 };
-
+// Qx_text added by saby
 export const navMap = {
     q1a: {
         descr1: `The first set of questions will ask about symptoms you might be experiencing. The experience of everyone with MS is different, and you may not experience all of the symptoms that we ask about.`,
