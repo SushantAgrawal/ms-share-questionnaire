@@ -6,9 +6,9 @@ export class NavigateComponent implements OnInit {
   // @Input()sourceName : string;
  // debugger;
   @Input()selectedOption : any;
-  // added by saby -start
+  //saby
   @Input()resultSet: any;
-   // added by saby -end
+   // saby
   constructor(private router : Router) {}
 
   ngOnInit() {}

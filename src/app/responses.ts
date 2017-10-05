@@ -1,4 +1,4 @@
-// Created by saby
+//saby
 export class responses {
     qx_code: any;
     qx_text: any;

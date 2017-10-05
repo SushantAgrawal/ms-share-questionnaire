@@ -45,10 +45,10 @@ export class Generic1Component implements OnInit {
   }
 
   change(event) {  
-     // added by saby -start
+     // saby
     this.res  = new responses('0',event.value.qx_text,event.value.text,event.value.score);   
     this.results.push(this.res);
-     // added by saby -end
+     // saby
     this.selectedOption = event.value;
   }
 }
