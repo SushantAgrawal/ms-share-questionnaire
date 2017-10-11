@@ -14,7 +14,7 @@ import {
   MdRadioModule,
   MdCardModule,
   MdListModule,
-  MdGridListModule
+  MdGridListModule,MatCardModule
 } from '@angular/material';
 import {AngularMaterialModule} from './angular-material/angular-material.module';
 import { ScreeningQuestionsComponent } from './screening-questions/screening-questions.component';
@@ -57,7 +57,8 @@ import { NavigateComponent } from './navigate/navigate.component';
     MdRadioModule,
     MdCardModule,
     MdListModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    MatCardModule
   ],
   providers: [MsShareService],
   bootstrap: [AppComponent]

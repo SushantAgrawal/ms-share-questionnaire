@@ -13,7 +13,7 @@ export class Generic1Component implements OnInit {
   descr2: string;
   results: responses[] = [];
   res: responses;
-  q3ResultSet: responses[] = [];
+  AllQuestionAns: responses[] = [];
 
   constructor(private router: Router, private route: ActivatedRoute) {
 
@@ -44,37 +44,37 @@ export class Generic1Component implements OnInit {
         .router
         .navigate(['generic1', this.selectedOption.jumpTo]);
     }
-
   }
 
   change(event) {
     // saby
-
+   
     if (this.router.url.includes('q3')) {
-      let objIndex = this.results.findIndex(obj => obj.qx_code == event.value.qx_code);
-      if (objIndex == -1) {
-        this.res = {
-          qx_code: event.value.qx_code, qx_text: event.value.qx_text, answer_text: event.value.text,
-          answer_text_score: event.value.score, jumpTo: event.value.jumpTo
-        };        
-       let pushIndex=  this.sortedIndex(this.results,this.res);
-        // '0',event.value.qx_text,event.value.text,event.value.score];// new responses('0',event.value.qx_text,event.value.text,event.value.score);   
-        //this.results.push(this.res);
-        this.results.splice(pushIndex, 0, this.res);
-      } else {
-        this.results[objIndex].answer_text = event.value.text;
-        this.results[objIndex].answer_text_score = event.value.score;
-        this.results[objIndex].jumpTo = event.value.jumpTo;
-        this.results[objIndex].qx_code = event.value.qx_text;
-      }
-    } else {
-
+      this.updateArray(event,this.results);      
     }
+     this.updateArray(event,this.AllQuestionAns); 
     // saby
     this.selectedOption = event.value;
     //this.selectedOption.push(event.value);
   }
 
+  updateArray(event,arr: responses[])
+  {
+    let objIndex = arr.findIndex(obj => obj.qx_code == event.value.qx_code);
+      if (objIndex == -1) {
+        this.res = {
+          qx_code: event.value.qx_code, qx_text: event.value.qx_text, answer_text: event.value.text,
+          answer_text_score: event.value.score, jumpTo: event.value.jumpTo
+        };        
+       let pushIndex=  this.sortedIndex(arr,this.res);        
+        arr.splice(pushIndex, 0, this.res);
+      } else {
+        arr[objIndex].answer_text = event.value.text;
+        arr[objIndex].answer_text_score = event.value.score;
+        arr[objIndex].jumpTo = event.value.jumpTo;
+        arr[objIndex].qx_text = event.value.qx_text;
+      }
+  }
   sortedIndex(array, value) {
     var low = 0,
       high = array.length;

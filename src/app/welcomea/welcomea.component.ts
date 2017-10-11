@@ -6,9 +6,13 @@ import {navMap} from '../app.config';
   templateUrl: './welcomea.component.html',
   styleUrls: ['./welcomea.component.css']
 })
-export class WelcomeaComponent implements OnInit {
 
-  constructor(private router:Router) { }
+export class WelcomeaComponent implements OnInit {
+ name ='Patient1';
+ drName= 'Scott';
+  constructor(private router:Router) {
+
+   }
 
   ngOnInit() {
   }

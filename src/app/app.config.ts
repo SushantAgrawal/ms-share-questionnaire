@@ -1571,22 +1571,56 @@ export const navMap = {
             },
             {
                 text: `My difficulty urinating is so severe that I require intermittent catheterization`,
-                score: 3,
+                score: 4,
                 qx_text: `On an average day,How easy it is for you to start urinating?`,
                 qx_code: 'q19'
             },
             {
                 text: `My difficulty urinating is so severe that I require an indwelling catheter`,
-                score: 3,
+                score: 5,
                 qx_text: `On an average day,How easy it is for you to start urinating?`,
                 qx_code: 'q19'
             },
             {
                 text: `My retention is so severe that my bladder lets out unexpectedly, even when I don't feel the urge to urinate ("overflow incontinence")`,
-                score: 3,
+                score: 6,
                 qx_text: `On an average day,How easy it is for you to start urinating?`,
                 qx_code: 'q19'
             },
+        ]
+    },
+    q20: {
+        text: `On an average day, which of the following best describes your cognitive (thinking) ability?`,
+        options: [
+            {
+                text: `I have no problems with concentration or memory`,
+                score: 0,
+                qx_text: `On an average day, which of the following best describes your cognitive (thinking) ability?`,
+                qx_code: 'q20'
+            }, {
+                text: `I have some concentration and memory problems, or problems with coping with stress, but I am able to handle my daily routines including completing this survey `,
+                score: 1,
+                qx_text: `On an average day,How easy it is for you to start urinating?`,
+                qx_code: 'q20'
+            },
+            {
+                text: `I have problems with concentration and memory that my friends and family notice; this is beginning to affect my daily routine. It makes completing  this survey difficult `,
+                score: 2,
+                qx_text: `On an average day,How easy it is for you to start urinating?`,
+                qx_code: 'q20'
+            },
+            {
+                text: `I have severe impairment in my cognitive (thinking) abilities; for example, I sometimes forget where I am and who I am talking to. I need help completing this survey`,
+                score: 3,
+                qx_text: `On an average day,How easy it is for you to start urinating?`,
+                qx_code: 'q20'
+            },
+            {
+                text: `I have no meaningful conversation and am unable to handle my affairs because of my severe cognitive problems; I need someone else to complete this survey`,
+                score: 4,
+                qx_text: `On an average day,How easy it is for you to start urinating?`,
+                qx_code: 'q20'
+            }
         ]
     }
 };
