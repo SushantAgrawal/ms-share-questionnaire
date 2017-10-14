@@ -7,8 +7,9 @@ import 'rxjs/add/operator/filter';
 import {ActivatedRoute, Router} from '@angular/router';
 import {welcomeMap,navMap} from './app.config';
 
+
 @Injectable()
-export class MsShareService {
+export class MsShareService { 
   //used to maintain a global object
   global : any = {};
   subject : Subject < any >;
@@ -19,14 +20,28 @@ export class MsShareService {
   };
 
   constructor(private http : Http, private activatedRoute : ActivatedRoute, private router : Router) {
+     //this.subject = new Subject();
+    
+    let SearchParams = new URLSearchParams(top.location.search);
+  let someParam = SearchParams.rawParams;
     this.set('navMap',navMap);
     // Production 
-    // activatedRoute.queryParams.subscribe(params=>{
-    // this.set('queryParams',params); }); 
+/*
+    let xxx = activatedRoute
+      .queryParamMap
+      .map(params => params.get('answered') || 'None');
+
+    activatedRoute.queryParamMap.subscribe(
+      params => console.log('queryParams', params['answered']));
+
+     activatedRoute.queryParams.subscribe(params=>{
+       console.log(params);
+     this.set('queryParams',params); }); */
     //development
-    (() => {
+     (() => {
       //values for answered are none, one, all
-      let sampleUrl = `http://localhost:4300?answered=none`;
+      //let sampleUrl = `http://localhost:4300?answered=none`;
+      let sampleUrl = someParam;
       let urlArray = sampleUrl.slice(sampleUrl.indexOf('?') + 1).split('&');
       let urlObject = urlArray.reduce((prevValue, x, i) => {
         let elementArray = x.split('=');
@@ -34,9 +49,9 @@ export class MsShareService {
         return (prevValue);
       }, {});
       this.set('queryParams', urlObject);
-    })();
+    })(); 
     
-    let answered = this.get('queryParams').answered;
+    let answered = typeof this.get('queryParams').answered != 'undefined'?this.get('queryParams').answered:'none';
     router.navigate([welcomeMap[answered]]);
   }
 

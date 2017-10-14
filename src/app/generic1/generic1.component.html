@@ -10,7 +10,7 @@
   </md-card-content>
   <p><b>{{sourceObject.text}}</b></p>
   <div *ngIf="sourceObject.options">
-    <md-radio-button (change)="change($event)" [value]="option" name="group1" *ngFor="let option of sourceObject.options">{{option.text}}</md-radio-button>
+    <md-radio-button (change)="change($event)" [value]="option" name="group1" [checked]="option.checked" *ngFor="let option of sourceObject.options">{{option.text}}</md-radio-button>
   </div>
   <div *ngIf="sourceObject.sub">
     <table>
@@ -22,7 +22,7 @@
         <tr *ngFor="let item of sourceObject.sub ; let g = index">
           <td>{{item.text}}</td>
           <td *ngFor="let option of sourceObject.sub[g].options">
-            <md-radio-button [name]='g' style="display:inline" (change)="change($event)" [value]="option"></md-radio-button>
+            <md-radio-button [name]='g' style="display:inline" (change)="change($event)" [value]="option" [checked]="option.checked"></md-radio-button>
           </td>
         </tr>
       </tbody>
@@ -33,10 +33,20 @@
       <p><b> {{item.text}}</b></p>
       <div *ngFor="let option of sourceObject.sub1[g].options">
         <!--{{option.text}} -->
-        <md-radio-button [name]='g' style="display:inline" (change)="change($event)" [value]="option">{{option.text}}</md-radio-button>
+        <md-radio-button [name]='g' style="display:inline" (change)="change($event)" [value]="option" [checked]="option.checked">{{option.text}}</md-radio-button>
       </div>
     </div>
-
   </div>
-  <app-navigate [selectedOption]="selectedOption" [resultSet]="results" [AllQuestionAns]="AllQuestionAns"></app-navigate>
+  <div  *ngIf="show">
+    <div *ngIf="sub2">
+      <div *ngFor="let item of sub2 ; let k = index">
+        <p><b> {{item.text}}</b></p>
+        <div *ngFor="let option of sub2[k].options">
+          <!--{{option.text}} -->
+          <md-radio-button name='new' style="display:inline" (change)="change($event)" [value]="option" [checked]="option.checked">{{option.text}}</md-radio-button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-navigate [selectedOption]="selectedOption" [resultSet]="results" [AllQuestionAns]="AllQuestionAns" [UserSelectedAns]="UserSelectedAns"></app-navigate>
 </md-card>
