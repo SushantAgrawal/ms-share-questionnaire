@@ -23,6 +23,13 @@ export class Generic1Component implements OnInit {
   show: boolean = false;
   queryStr: any;
   spltUrl: string;
+  length = 0;
+  header: string;
+  sub6Q1: string;
+  sub6Q: string[] = [];
+
+
+
   constructor(private router: Router, private route: ActivatedRoute, private msShareService: MsShareService) {
     route
       .params
@@ -33,12 +40,26 @@ export class Generic1Component implements OnInit {
   }
 
   doInit() {
+    var i: number;
     this.sourceObject = navMap[this.sourceName];
     this.descr1 = this.sourceObject.descr1;
     this.descr2 = this.sourceObject.descr2;
     this.sub2 = this.sourceObject.Sub2;
     this.show = false;
+
+
     //saby
+    if (typeof this.sourceObject.sub6 != 'undefined') {
+      this.header = this.sourceObject.header;
+      for (let entry of this.sourceObject.sub6) {
+        this.length = entry.options.length - 1;
+        this.sub6Q1 = entry.options[0].text;
+        for (i = 1; i <= this.length; i++) {
+          this.sub6Q[i - 1] = entry.options[i].text;
+        }
+      }
+
+    }
 
     if (typeof this.sourceObject.options != 'undefined') {
       for (let option of this.sourceObject.options) {
@@ -50,8 +71,6 @@ export class Generic1Component implements OnInit {
         let selected = this.GetChangeEvent(option.qx_code);
         if (typeof selected != 'undefined') {
           if (selected.text == option.text) {
-            console.log(selected.qx_code);
-            console.log(option.text);
             option.checked = true;
             this.selectedOption = selected;
           } else {
@@ -86,8 +105,8 @@ export class Generic1Component implements OnInit {
           let selected = this.GetChangeEvent(option.qx_code);
           if (typeof selected != 'undefined') {
             if (selected.text == option.text) {
-              console.log(selected.qx_code);
-              console.log(option.text);
+              /* console.log(selected.qx_code);
+               console.log(option.text);*/
               option.checked = true;
               this.selectedOption = selected;
             } else {
@@ -99,27 +118,44 @@ export class Generic1Component implements OnInit {
     }
     if (typeof this.GetChangeEvent('q17a') != 'undefined' || typeof this.GetChangeEvent('q17b') != 'undefined') {
       if (typeof this.sub2 != 'undefined' && typeof this.sub2[0].options != 'undefined') {
-        console.log('hi');
-        
-          for (let option of this.sub2[0].options) {
-            let selected = this.GetChangeEvent(option.qx_code);
-            if (typeof selected != 'undefined') {
-              if (selected.text == option.text) {
-                console.log(selected.qx_code);
-                console.log(option.text);
-                option.checked = true;
+
+
+        for (let option of this.sub2[0].options) {
+          let selected = this.GetChangeEvent(option.qx_code);
+          if (typeof selected != 'undefined') {
+            if (selected.text == option.text) {
+              option.checked = true;
+              //this.show = true; 
+              if (this.GetChangeEvent('q17a').score > 0 || this.GetChangeEvent('q17b').score > 0) {
                 this.show = true;
-                this.selectedOption = selected;
-              } else {
-                option.checked = false;
-                //this.show = false;
               }
+              this.selectedOption = selected;
+            } else {
+              option.checked = false;
+              //this.show = false;
             }
-          
+          }
+
+        }
+      }
+    }
+    if (typeof this.sourceObject.sub6 != 'undefined') {
+      for (let entry of this.sourceObject.sub6) {
+        for (let option of entry.options) {
+          let selected = this.GetChangeEvent(option.qx_code);
+          if (typeof selected != 'undefined') {
+            if (selected.text == option.text) {
+              option.checked = true;
+              this.selectedOption = selected;
+            } else {
+              option.checked = false;
+            }
+          }
         }
       }
     }
   }
+
 
 
   ngOnInit() {

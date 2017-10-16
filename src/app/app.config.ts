@@ -865,20 +865,14 @@ export const navMap = {
     },
     q6: {
         text: `In general, do muscle spasms or stiffness ("spasticity") make it hard for you to use (bend or straighten) your arms and legs?`,
-        sub: [
+        header: `Stiffness and spasms…`,
+        sub6: [
             {
                 text: `Right Arm`,
                 options: [
                     {
                         text: `I do not have stiffness or spasms`,
                         score: 0,
-                        qx_text: 'Right Arm',
-                        qx_code: 'q6a',
-                        checked: ''
-                    },
-                    {
-                        text: `Stiffness and spasms...`,
-                        score: 'N/A',
                         qx_text: 'Right Arm',
                         qx_code: 'q6a',
                         checked: ''
@@ -924,13 +918,6 @@ export const navMap = {
                         checked: ''
                     },
                     {
-                        text: `Stiffness and spasms...`,
-                        score: 'N/A',
-                        qx_text: 'Left Arm',
-                        qx_code: 'q6b',
-                        checked: ''
-                    },
-                    {
                         text: `Mild, do not make it hard for me to use`,
                         score: 1,
                         qx_text: 'Left Arm',
@@ -966,13 +953,6 @@ export const navMap = {
                     {
                         text: `I do not have stiffness or spasms`,
                         score: 0,
-                        qx_text: 'Right Leg',
-                        qx_code: 'q6c',
-                        checked: ''
-                    },
-                    {
-                        text: `Stiffness and spasms...`,
-                        score: 'N/A',
                         qx_text: 'Right Leg',
                         qx_code: 'q6c',
                         checked: ''
@@ -1016,14 +996,7 @@ export const navMap = {
                         qx_text: 'Left Leg',
                         qx_code: 'q6d',
                         checked: ''
-                    },
-                    {
-                        text: `Stiffness and spasms...`,
-                        score: 'N/A',
-                        qx_text: 'Left Leg',
-                        qx_code: 'q6d',
-                        checked: ''
-                    },
+                    },                   
                     {
                         text: `Mild, do not make it hard for me to use`,
                         score: 1,
