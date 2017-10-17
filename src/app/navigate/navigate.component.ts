@@ -6,9 +6,7 @@ import { MsShareService } from '../ms-share.service';
 import { Observable } from 'rxjs/Observable';
 
 @Component({ selector: 'app-navigate', templateUrl: './navigate.component.html', styleUrls: ['./navigate.component.css'] })
-export class NavigateComponent implements OnInit {
-  // @Input()sourceName : string;
-  // debugger;
+export class NavigateComponent implements OnInit { 
   @Input() selectedOption: any;
   //saby
   @Input() AllQuestionAns: any;
