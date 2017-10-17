@@ -40,16 +40,18 @@ export class Generic1Component implements OnInit {
   }
 
   doInit() {
-    var i: number;
+   
     this.sourceObject = navMap[this.sourceName];
     this.descr1 = this.sourceObject.descr1;
-    this.descr2 = this.sourceObject.descr2;
+    this.descr2 = this.sourceObject.descr2;    
+    let i: number;
     this.sub2 = this.sourceObject.Sub2;
     this.show = false;
+   // let type = this.msShareService.get('navMap');
 
 
     //saby
-    if (typeof this.sourceObject.sub6 != 'undefined') {
+    if (typeof this.sourceObject.sub6 !== 'undefined') {
       this.header = this.sourceObject.header;
       for (let entry of this.sourceObject.sub6) {
         this.length = entry.options.length - 1;
@@ -58,19 +60,18 @@ export class Generic1Component implements OnInit {
           this.sub6Q[i - 1] = entry.options[i].text;
         }
       }
-
     }
 
-    if (typeof this.sourceObject.options != 'undefined') {
+    if (typeof this.sourceObject.options !== 'undefined') {
       for (let option of this.sourceObject.options) {
-        //for first time loding
+        // for first time loding
         if (option.score == 0) {
           this.selectedOption = option;
         }
-        //for next loading
+        // for next loading
         let selected = this.GetChangeEvent(option.qx_code);
-        if (typeof selected != 'undefined') {
-          if (selected.text == option.text) {
+        if (typeof selected !== 'undefined') {
+          if (selected.text === option.text) {
             option.checked = true;
             this.selectedOption = selected;
           } else {
@@ -125,7 +126,7 @@ export class Generic1Component implements OnInit {
           if (typeof selected != 'undefined') {
             if (selected.text == option.text) {
               option.checked = true;
-              //this.show = true; 
+              // bthis.show = true;
               if (this.GetChangeEvent('q17a').score > 0 || this.GetChangeEvent('q17b').score > 0) {
                 this.show = true;
               }
@@ -159,15 +160,16 @@ export class Generic1Component implements OnInit {
 
 
   ngOnInit() {
+    
 
   }
 
 
 
   change(event) {
-    // saby  
+    // saby
     if (this.router.url.includes('q3')) {
-      this.updateArray(event, this.results);
+      this.updateArray(event, this.results);      
     }
     this.updateArray(event, this.AllQuestionAns);
     this.SetChangeEvent(event.value, event.value.qx_code);
@@ -213,11 +215,11 @@ export class Generic1Component implements OnInit {
   }
 
   sortedIndex(array, value) {
-    var low = 0,
+    let low = 0,
       high = array.length;
 
     while (low < high) {
-      var mid = low + high >>> 1;
+      let mid = low + high >>> 1;
       if (array[mid].qx_code < value.qx_code) low = mid + 1;
       else high = mid;
     }

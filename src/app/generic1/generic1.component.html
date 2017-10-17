@@ -2,8 +2,8 @@
   <md-card-content>
     <div *ngIf='descr1'>
       <b>{{descr1}}</b>
+      <br/>
     </div>
-    <br/>
     <div *ngIf='descr2' style="margin-bottom:3em;">
       <b>{{descr2}}</b>
     </div>
@@ -28,6 +28,7 @@
       </tbody>
     </table>
   </div>
+  <!-- saby -->
   <div class="subtable" *ngIf="sourceObject.sub1">
     <div *ngFor="let item of sourceObject.sub1 ; let g = index">
       <p><b> {{item.text}}</b></p>
@@ -47,7 +48,8 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> 
+  
   <div  class="subtable" *ngIf="sourceObject.sub6">
     <table>
       <tr>
@@ -67,6 +69,7 @@
         </tr>
       </tbody>
     </table>
+    <!-- saby -->
   </div>
   <app-navigate [selectedOption]="selectedOption" [resultSet]="results" [AllQuestionAns]="AllQuestionAns" [UserSelectedAns]="UserSelectedAns"></app-navigate>
 </md-card>
