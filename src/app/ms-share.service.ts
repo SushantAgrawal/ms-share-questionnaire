@@ -21,7 +21,7 @@ export class MsShareService {
 
   constructor(private http : Http, private activatedRoute : ActivatedRoute, private router : Router) {
      //this.subject = new Subject();
-    
+    //saby
     let SearchParams = new URLSearchParams(top.location.search);
   let someParam = SearchParams.rawParams;
     this.set('navMap',navMap);
@@ -39,8 +39,8 @@ export class MsShareService {
      this.set('queryParams',params); }); */
     //development
      (() => {
-      //values for answered are none, one, all
-      //let sampleUrl = `http://localhost:4300?answered=none`;
+      //values for type are none, one, all
+      //let sampleUrl = `http://localhost:4300?type=none`;
       let sampleUrl = someParam;
       let urlArray = sampleUrl.slice(sampleUrl.indexOf('?') + 1).split('&');
       let urlObject = urlArray.reduce((prevValue, x, i) => {
@@ -51,8 +51,8 @@ export class MsShareService {
       this.set('queryParams', urlObject);
     })(); 
     
-    let answered = typeof this.get('queryParams').answered != 'undefined'?this.get('queryParams').answered:'none';
-    router.navigate([welcomeMap[answered]]);
+    let type = typeof this.get('queryParams').type != 'undefined'?this.get('queryParams').type:'none';
+    router.navigate([welcomeMap[type]]);
   }
 
   get(id) {

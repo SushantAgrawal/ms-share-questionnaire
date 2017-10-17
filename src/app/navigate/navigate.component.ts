@@ -18,9 +18,12 @@ export class NavigateComponent implements OnInit {
   quetionNo: any[] = ['q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10', 'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19', 'q20'];
   res: responses;
   spltUrl: string;
+  navMap:object;
 
   // saby
-  constructor(private router: Router) { }
+  constructor(private router: Router, private msShareService: MsShareService) { 
+    this.navMap = this.msShareService.get('navMap');
+  }
 
   ngOnInit() { }
 
@@ -30,9 +33,13 @@ export class NavigateComponent implements OnInit {
     let objIndex = this.quetionNo.findIndex(obj => obj == this.spltUrl);
     if (objIndex != -1) {
       NextJumpTo = this.getNextJump();
-    } else {
-      NextJumpTo = this.selectedOption.jumpTo;
+    } 
+    else {
+      NextJumpTo =this.selectedOption.jumpTo;
     }
+
+   
+
     if (typeof NextJumpTo != 'undefined') {
       let prevIndex = this.previousUrl.findIndex(obj => obj == this.spltUrl);
       if (prevIndex == -1) {
@@ -50,10 +57,10 @@ export class NavigateComponent implements OnInit {
       .navigate(['generic1', NextJumpTo])
   }
   getNextJump() {
+   // debugger;
     let NextJumpTo: any;
     let index: any;
     index = 0;
-
     if (this.resultSet.length != 0) {
       for (let entry of this.resultSet) {
         index = index + 1;
@@ -63,13 +70,13 @@ export class NavigateComponent implements OnInit {
             break;
           }
         }
-
       }
       this.res = this.resultSet[index];
       this.resultSet.splice(0, index);
     } else {
       NextJumpTo = this.selectedOption.jumpTo;
     }
+    NextJumpTo = NextJumpTo?NextJumpTo:(this.navMap["q3"]["jumpTo"]);
 
     /*for (let entry of this.resultSet) {
       if (entry.qx_code.includes("q3") && typeof entry.jumpTo != 'undefined') {
@@ -90,11 +97,9 @@ export class NavigateComponent implements OnInit {
   previous() {
     let previousJump = this.previousUrl[this.previousUrl.length - 1]
     this.previousUrl = this.previousUrl.splice(0, this.previousUrl.length - 1);
-
     this.spltUrl = this.router.url.split('/')[this.router.url.split('/').length - 1];
     let objIndex = this.quetionNo.findIndex(obj => obj == this.spltUrl);
     if (objIndex > 0) {
-
       let index1 = this.AllQuestionAns.findIndex(o => o.jumpTo == this.spltUrl);
       this.res = this.AllQuestionAns[index1];
       this.updateArray(this.res, this.resultSet)
@@ -134,6 +139,4 @@ export class NavigateComponent implements OnInit {
     }
     return low;
   }
-
-
 }

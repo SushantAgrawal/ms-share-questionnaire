@@ -14,11 +14,11 @@ background: linear-gradient(to bottom, #96c0fa 8%,#6a9fe5 88%); /* W3C, IE10+, F
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#96c0fa', endColorstr='#6a9fe5',GradientType=0 ); /* IE6-9 */
     /*padding: .5em .5em .5em;*/
     font-size: 1em;
-    margin-right: 1em;
+    margin-right: 1em; cursor:pointer;
 }
 
 .navigate-sec button i.fa-arrow-left{padding-right: .4em;
-    line-height: .2em;}
+    line-height: .2em; position: relative; bottom:.14em;}
 
   .navigate-sec button i.fa-arrow-right{padding-left: .4em;
-    line-height: .2em;}  
+    line-height: .2em; position: relative; bottom:.14em;}  
