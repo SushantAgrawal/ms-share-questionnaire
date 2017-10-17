@@ -33,7 +33,7 @@ export class MsShareService {
       return (prevValue);
     }, {});
     this.set('queryParams', urlObject);
-    let welcome = this.get('queryParams')['answered'] || 'none';
+    let welcome = this.get('queryParams')['type'] || 'none';
     router.navigate([welcomeMap[welcome]]);
   }
 
