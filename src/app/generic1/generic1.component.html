@@ -9,10 +9,10 @@
     </div>
   </md-card-content>
   <p>{{sourceObject.text}}</p>
-  <div *ngIf="sourceObject.options">
-    <md-radio-button (change)="change($event)" [value]="option" name="group1" [checked]="option.checked" *ngFor="let option of sourceObject.options">{{option.text}}</md-radio-button>
+  <div *ngIf="targetObject.options">
+    <md-radio-button (change)="change($event)" [value]="option" name="group1" [checked]="option.checked" *ngFor="let option of targetObject.options">{{option.text}}</md-radio-button>
   </div>
-  <div class="subtable"  *ngIf="sourceObject.sub">
+  <!-- <div class="subtable" *ngIf="sourceObject.sub">
     <table>
       <tr>
         <th class="emptysec"></th>
@@ -28,12 +28,13 @@
       </tbody>
     </table>
   </div>
-  <!-- saby -->
+  
   <div class="subtable" *ngIf="sourceObject.sub1">
     <div *ngFor="let item of sourceObject.sub1 ; let g = index">
-      <p><b> {{item.text}}</b></p>
+      <p>
+        <b> {{item.text}}</b>
+      </p>
       <div *ngFor="let option of sourceObject.sub1[g].options">
-        <!--{{option.text}} -->
         <md-radio-button [name]='g' style="display:inline" (change)="change($event)" [value]="option" [checked]="option.checked">{{option.text}}</md-radio-button>
       </div>
     </div>
@@ -41,21 +42,22 @@
   <div *ngIf="show">
     <div *ngIf="sub2">
       <div *ngFor="let item of sub2 ; let k = index">
-        <p><b> {{item.text}}</b></p>
+        <p>
+          <b> {{item.text}}</b>
+        </p>
         <div *ngFor="let option of sub2[k].options">
-          <!--{{option.text}} -->
           <md-radio-button name='new' style="display:inline" (change)="change($event)" [value]="option" [checked]="option.checked">{{option.text}}</md-radio-button>
         </div>
       </div>
     </div>
-  </div> 
-  
-  <div  class="subtable" *ngIf="sourceObject.sub6">
+  </div>
+
+  <div class="subtable" *ngIf="sourceObject.sub6">
     <table>
       <tr>
-        <td rowspan="2"  ></td>
-        <td style="background-color:#c6d9f1;" rowspan="2" >{{this.sub6Q1}}</td>
-       <td style="background-color:#acc3df ; padding:.8em" [attr.colspan]="length" >{{this.header}}</td>
+        <td rowspan="2"></td>
+        <td style="background-color:#c6d9f1;" rowspan="2">{{this.sub6Q1}}</td>
+        <td style="background-color:#acc3df ; padding:.8em" [attr.colspan]="length">{{this.header}}</td>
       </tr>
       <tr>
         <th *ngFor="let option of sub6Q">{{option}}</th>
@@ -69,7 +71,6 @@
         </tr>
       </tbody>
     </table>
-    <!-- saby -->
-  </div>
-  <app-navigate [selectedOption]="selectedOption" [resultSet]="results" [AllQuestionAns]="AllQuestionAns" [UserSelectedAns]="UserSelectedAns"></app-navigate>
+  </div> -->
+  <app-navigate [selectedOption]="selectedOption" [resultSet]="results"></app-navigate>
 </md-card>
