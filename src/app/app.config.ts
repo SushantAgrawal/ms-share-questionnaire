@@ -97,97 +97,45 @@ export const navMap = {
     },
     q2: {
         text: `When you move about, how often do you use any of the following?`,
+        commonOptions: [
+            {
+                text: `Never or rarely`,
+                score: 0,
+                jumpTo: 'q3',
+                checked: false
+            }, {
+                text: `Sometimes`,
+                score: 1,
+                jumpTo: 'q3',
+                checked: false
+            }, {
+                text: `Less than half the time`,
+                score: 2,
+                jumpTo: 'q3',
+                checked: false
+            }, {
+                text: `More than half the time`,
+                score: 3,
+                jumpTo: 'q3',
+                checked: false
+            }, {
+                text: `All the time or almost all of the time`,
+                score: 4,
+                jumpTo: 'q3',
+                checked: false
+            }
+        ],
+
         sub: [
             {
                 text: `A cane, crutch, or someone to hold on to.`,
-                options: [
-                    {
-                        text: `Never or rarely`,
-                        score: 0,
-                        jumpTo: 'q3',
-                        checked: false
-                    }, {
-                        text: `Sometimes`,
-                        score: 1,
-                        jumpTo: 'q3',
-                        checked: false
-                    }, {
-                        text: `Less than half the time`,
-                        score: 2,
-                        jumpTo: 'q3',
-                        checked: false
-                    }, {
-                        text: `More than half the time`,
-                        score: 3,
-                        jumpTo: 'q3',
-                        checked: false
-                    }, {
-                        text: `All the time or almost all of the time`,
-                        score: 4,
-                        jumpTo: 'q3',
-                        checked: false
-                    }
-                ]
+                options: []
             }, {
                 text: ` A walker or other bilateral support.`,
-                options: [
-                    {
-                        text: `Never or rarely`,
-                        score: 0,
-                        jumpTo: 'q3',
-                        checked: false
-                    }, {
-                        text: `Sometimes`,
-                        score: 1,
-                        jumpTo: 'q3',
-                        checked: false
-                    }, {
-                        text: `Less than half the time`,
-                        score: 2,
-                        jumpTo: 'q3',
-                        checked: false
-                    }, {
-                        text: `More than half the time`,
-                        score: 3,
-                        jumpTo: 'q3',
-                        checked: false
-                    }, {
-                        text: `All the time or almost all of the time`,
-                        score: 4,
-                        jumpTo: 'q3',
-                        checked: false
-                    }
-                ]
+                options: []
             }, {
                 text: `A wheelchair.`,
-                options: [
-                    {
-                        text: `Never or rarely`,
-                        score: 0,
-                        jumpTo: 'q3',
-                        checked: false
-                    }, {
-                        text: `Sometimes`,
-                        score: 1,
-                        jumpTo: 'q3',
-                        checked: false
-                    }, {
-                        text: `Less than half the time`,
-                        score: 2,
-                        jumpTo: 'q3',
-                        checked: false
-                    }, {
-                        text: `More than half the time`,
-                        score: 3,
-                        jumpTo: 'q3',
-                        checked: false
-                    }, {
-                        text: `All the time or almost all of the time`,
-                        score: 4,
-                        jumpTo: 'q3',
-                        checked: false
-                    }
-                ]
+                options: []
             }
         ]
 

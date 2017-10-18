@@ -12,24 +12,25 @@
   <div *ngIf="targetObject.options">
     <md-radio-button (change)="change($event)" [value]="option" name="group1" [checked]="option.checked" *ngFor="let option of targetObject.options">{{option.text}}</md-radio-button>
   </div>
-  <!-- <div class="subtable" *ngIf="sourceObject.sub">
+  <div class="subtable" *ngIf="targetObject.sub">
     <table>
       <tr>
         <th class="emptysec"></th>
-        <th *ngFor="let option of sourceObject.sub[0].options">{{option.text}}</th>
+        <!-- <th *ngFor="let option of targetObject.sub[0].options">{{option.text}}</th> -->
+        <th *ngFor="let option of targetObject.commonOptions">{{option.text}}</th>
       </tr>
       <tbody>
-        <tr *ngFor="let item of sourceObject.sub ; let g = index">
+        <tr *ngFor="let item of targetObject.sub ; let g = index">
           <td>{{item.text}}</td>
-          <td *ngFor="let option of sourceObject.sub[g].options">
-            <md-radio-button [name]='g' style="display:inline" (change)="change($event)" [value]="option" [checked]="option.checked"></md-radio-button>
+          <td *ngFor="let option of item.options">
+            <!-- <md-radio-button [name]='g' style="display:inline" (change)="change($event)" [value]="option" [checked]="option.checked"></md-radio-button> -->
           </td>
         </tr>
       </tbody>
     </table>
   </div>
   
-  <div class="subtable" *ngIf="sourceObject.sub1">
+  <!-- <div class="subtable" *ngIf="sourceObject.sub1">
     <div *ngFor="let item of sourceObject.sub1 ; let g = index">
       <p>
         <b> {{item.text}}</b>
