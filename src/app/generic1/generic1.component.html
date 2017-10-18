@@ -8,7 +8,7 @@
       <b>{{descr2}}</b>
     </div>
   </md-card-content>
-  <p>{{sourceObject.text}}</p>
+  <p>{{targetObject.text}}</p>
   <div *ngIf="targetObject.options">
     <md-radio-button (change)="change($event)" [value]="option" name="group1" [checked]="option.checked" *ngFor="let option of targetObject.options">{{option.text}}</md-radio-button>
   </div>

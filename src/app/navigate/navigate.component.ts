@@ -6,8 +6,9 @@ import { MsShareService } from '../ms-share.service';
 import { Observable } from 'rxjs/Observable';
 
 @Component({ selector: 'app-navigate', templateUrl: './navigate.component.html', styleUrls: ['./navigate.component.css'] })
-export class NavigateComponent implements OnInit { 
+export class NavigateComponent implements OnInit {
   @Input() selectedOption: any;
+  questionsStack: any[] = [];
   //saby
   // @Input() AllQuestionAns: any;
   @Input() resultSet: any;
@@ -16,18 +17,24 @@ export class NavigateComponent implements OnInit {
   // quetionNo: any[] = ['q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10', 'q11', 'q12', 'q13', 'q14', 'q15', 'q16', 'q17', 'q18', 'q19', 'q20'];
   // res: responses;
   // spltUrl: string;
-  navMap:object;
+  navMap: object;
 
   // saby
-  constructor(private router: Router, private msShareService: MsShareService) { 
-    this.navMap = this.msShareService.get('navMap');
+  constructor(private router: Router) {
+    // this.navMap = this.msShareService.get('navMap');
   }
 
   ngOnInit() { }
 
   next() {
+    let jumpTo = this.selectedOption
+      && this.selectedOption.jumpTo;
+      this.selectedOption && this.questionsStack.push(this.selectedOption);
+    //clear the checked status for all options
+    // this.selectedOption && navMap[this.selectedOption.pageName].options.forEach(x => x.checked = false);
+    jumpTo && this.router.navigate(['generic1', jumpTo]);
     // this.spltUrl = this.router.url.split('/')[this.router.url.split('/').length - 1];
-    let NextJumpTo: any;
+    // let NextJumpTo: any;
     // let objIndex = this.quetionNo.findIndex(obj => obj == this.spltUrl);
     // if (objIndex != -1) {
     //   NextJumpTo = this.getNextJump();
@@ -36,7 +43,7 @@ export class NavigateComponent implements OnInit {
     //   NextJumpTo =this.selectedOption.jumpTo;
     // }
 
-   
+
 
     // if (typeof NextJumpTo != 'undefined') {
     //   let prevIndex = this.previousUrl.findIndex(obj => obj == this.spltUrl);
@@ -45,12 +52,36 @@ export class NavigateComponent implements OnInit {
     //   }
     // }
 
-    NextJumpTo && this
-      .router
-      .navigate(['generic1', NextJumpTo])
+    // NextJumpTo && this
+    //   .router
+    //   .navigate(['generic1', NextJumpTo])
   }
+
+  previous() {
+    let option;
+    (this.questionsStack.length > 0) && (option = this.questionsStack.pop());
+    // let option = this.questionsStack.pop();
+    option && (this.selectedOption = option);
+    let jumpTo = option && option.pageName;
+    jumpTo && this.router.navigate(['generic1', jumpTo]);
+    // let previousJump = this.previousUrl[this.previousUrl.length - 1]
+    // this.previousUrl = this.previousUrl.splice(0, this.previousUrl.length - 1);
+    // this.spltUrl = this.router.url.split('/')[this.router.url.split('/').length - 1];
+    // let objIndex = this.quetionNo.findIndex(obj => obj == this.spltUrl);
+    // if (objIndex > 0) {
+    //   let index1 = this.AllQuestionAns.findIndex(o => o.jumpTo == this.spltUrl);
+    //   this.res = this.AllQuestionAns[index1];
+    //   this.updateArray(this.res, this.resultSet)
+    // }
+
+    // previousJump && this
+    //   .router
+    //   .navigate(['generic1', previousJump])
+
+  }
+
   getNextJump() {
-   // debugger;
+    // debugger;
     let NextJumpTo: any;
     let index: any;
     index = 0;
@@ -69,7 +100,7 @@ export class NavigateComponent implements OnInit {
     } else {
       NextJumpTo = this.selectedOption.jumpTo;
     }
-    NextJumpTo = NextJumpTo?NextJumpTo:(this.navMap["q3"]["jumpTo"]);
+    NextJumpTo = NextJumpTo ? NextJumpTo : (this.navMap["q3"]["jumpTo"]);
 
     return NextJumpTo;
   }
@@ -78,22 +109,7 @@ export class NavigateComponent implements OnInit {
     return objIndex
   }
 
-  previous() {
-    // let previousJump = this.previousUrl[this.previousUrl.length - 1]
-    // this.previousUrl = this.previousUrl.splice(0, this.previousUrl.length - 1);
-    // this.spltUrl = this.router.url.split('/')[this.router.url.split('/').length - 1];
-    // let objIndex = this.quetionNo.findIndex(obj => obj == this.spltUrl);
-    // if (objIndex > 0) {
-    //   let index1 = this.AllQuestionAns.findIndex(o => o.jumpTo == this.spltUrl);
-    //   this.res = this.AllQuestionAns[index1];
-    //   this.updateArray(this.res, this.resultSet)
-    // }
 
-    // previousJump && this
-    //   .router
-    //   .navigate(['generic1', previousJump])
-
-  }
 
   // updateArray(value: responses, arr: responses[]) {
 
