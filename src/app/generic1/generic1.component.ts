@@ -1,25 +1,28 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
-import {navMap} from '../app.config';
-import {responses} from '../responses'
-import {MsShareService} from '../ms-share.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { navMap } from '../app.config';
+import { responses } from '../responses'
+import { MsShareService } from '../ms-share.service';
+import * as _ from "lodash";
 // import { Observable } from 'rxjs/Observable';
 
-@Component({selector: 'app-generic1', templateUrl: './generic1.component.html', styleUrls: ['./generic1.component.css']})
+@Component({ selector: 'app-generic1', templateUrl: './generic1.component.html', styleUrls: ['./generic1.component.css'] })
 
 export class Generic1Component implements OnInit {
-  targetName : string;
-  selectedOption : any;
+  targetName: string;
+  selectedOption: any;
+  @Input() selectedSubIndex: any;
   // options:any[]; subscriptions: any;
-  targetObject : any;
-  descr1 : string;
-  descr2 : string;
+  targetObject: any;
+  descr1: string;
+  descr2: string;
   // sub2: object; results: responses[] = []; res: responses; AllQuestionAns:
   // responses[] = []; UserSelectedAns: Object = {}; strChecked: boolean = false;
   // show: boolean = false; queryStr: any; spltUrl: string; length = 0; header:
   // string; sub6Q1: string; sub6Q: string[] = [];
 
-  constructor(private router : Router, private activatedRoute : ActivatedRoute, private msShareService : MsShareService) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private msShareService: MsShareService) {
+
     activatedRoute
       .params
       .subscribe(param => {
@@ -27,30 +30,40 @@ export class Generic1Component implements OnInit {
         this.targetObject = navMap[this.targetName];
         this.descr1 = this.targetObject.descr1;
         this.descr2 = this.targetObject.descr2;
+        this.showPage();
       });
+  }
+
+  showPage() {
+    let options = navMap[this.targetName].options;
+    let sub = this.targetObject.sub;
+    let commonOptions = this.targetObject.commonOptions;// navMap[this.targetName].commonOptions;
+    sub && commonOptions && sub.forEach(x => {
+      let toBeCloned = Object.assign([], x.options, commonOptions);
+      if ((!x.options) || (x.options.length == 0)) { x.options = _.cloneDeep(toBeCloned); }
+    });
+
+    let option = options && options.find(x => x.checked);
+
+    option && (this.selectedOption = option);
   }
 
   ngOnInit() {
-    this
-      .router
-      .events
-      .subscribe(e => {
-        if (e instanceof NavigationEnd) {
-          let options = navMap[this.targetName].options;
-          let sub : any[] = this.targetObject.sub;// navMap[this.targetName].sub;
-          let commonOptions = this.targetObject.commonOptions;// navMap[this.targetName].commonOptions;
-          sub && commonOptions && (sub.forEach(x => x.options = Object.assign({}, x.options, commonOptions)));
-          let option = options && options.find(x => x.checked);
-          // let selectedSubOptions = sub && sub.filter(x => x.options.find(y =>
-          // y.checked))
-          option && (this.selectedOption = option);
-        }
-      });
+ 
   }
 
   change(event) {
-    let options : any[] = navMap[this.targetName].options;
+    let options: any[] = navMap[this.targetName].options;
     options && options.forEach(x => x.checked = false);
+
+
+    let sub = this.targetObject.sub;
+    if (sub) {
+      //in html template name captures the index 
+      let index = +event.source.name;
+      sub[index].options.forEach(x => x.checked = false); //to reset the already checked radio button
+    }
+
     this.selectedOption = event.value;
     this.selectedOption.checked = true;
     this.selectedOption.pageName = this.targetName;

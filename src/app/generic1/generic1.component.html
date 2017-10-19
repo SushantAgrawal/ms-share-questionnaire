@@ -15,15 +15,15 @@
   <div class="subtable" *ngIf="targetObject.sub">
     <table>
       <tr>
-        <th class="emptysec"></th>
-        <!-- <th *ngFor="let option of targetObject.sub[0].options">{{option.text}}</th> -->
+        <th class="emptysec"></th>     
         <th *ngFor="let option of targetObject.commonOptions">{{option.text}}</th>
       </tr>
       <tbody>
         <tr *ngFor="let item of targetObject.sub ; let g = index">
           <td>{{item.text}}</td>
-          <td *ngFor="let option of item.options">
-            <!-- <md-radio-button [name]='g' style="display:inline" (change)="change($event)" [value]="option" [checked]="option.checked"></md-radio-button> -->
+          <td *ngFor="let option of item.options ; let i = index">
+              <!-- <td *ngFor="let option of targetObject.sub[0].options"> -->
+            <md-radio-button [name]="g"  style="display:inline" (change)="change($event)" [value]="option" [checked]="option.checked"></md-radio-button>
           </td>
         </tr>
       </tbody>

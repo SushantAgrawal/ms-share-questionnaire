@@ -24,7 +24,9 @@ export class NavigateComponent implements OnInit {
     // this.navMap = this.msShareService.get('navMap');
   }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    
+  }
 
   next() {
     let jumpTo = this.selectedOption

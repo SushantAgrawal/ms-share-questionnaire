@@ -128,14 +128,11 @@ export const navMap = {
 
         sub: [
             {
-                text: `A cane, crutch, or someone to hold on to.`,
-                options: []
+                text: `A cane, crutch, or someone to hold on to.`
             }, {
-                text: ` A walker or other bilateral support.`,
-                options: []
+                text: ` A walker or other bilateral support.`
             }, {
-                text: `A wheelchair.`,
-                options: []
+                text: `A wheelchair.`
             }
         ]
 
