@@ -22,7 +22,7 @@ export const ROUTES : Routes = [
       component: WelcomecComponent
     },
     {
-      path: 'generic1/:targetName', pathMatch:'full',
+      path: 'generic1/:pageName', pathMatch:'full',
       component: Generic1Component
     }
   ];

@@ -3,6 +3,26 @@ export const welcomeMap = {
     one: 'welcomeb',
     all: 'welcomec'
 };
+export const transitArray = [
+    'q3',
+    'q4',
+    'q5',
+    'q6',
+    'q7',
+    'q8',
+    'q9',
+    'q10',
+    'q11',
+    'q12',
+    'q13',
+    'q14',
+    'q15',
+    'q16',
+    'q17',
+    'q18',
+    'q19',
+    'q20'
+];
 // saby
 export const navMap = {
     q1a: {
@@ -125,7 +145,6 @@ export const navMap = {
                 checked: false
             }
         ],
-
         sub: [
             {
                 text: `A cane, crutch, or someone to hold on to.`
@@ -139,6 +158,7 @@ export const navMap = {
     },
     q3: {
         text: `Do you have any of the problems below?`,
+        isMultiOptions: true,
         sub: [
             {
                 text: `Change in feeling (e.g. tingling, numbness) in hands, feet, arms or legs?`,
@@ -369,320 +389,113 @@ export const navMap = {
     },
     q4: {
         text: `On an average day, check the answer that best describes your sensation (feeling, numbness, ability to sense touch or hot or cold) in your:`,
+        commonOptions: [
+            {
+                text: `Feeling is very good - No problems`,
+                score: 0,
+                checked: false
+            }, {
+                text: `Feeling is good`,
+                score: 1,
+                checked: false
+            }, {
+                text: `Feeling is fair`,
+                score: 2,
+                checked: false
+            }, {
+                text: `Feeling is poor`,
+                score: 3,
+                checked: false
+            }, {
+                text: `Feeling is very poor or completely gone`,
+                score: 4,
+                checked: false
+            }
+        ],
         sub: [
             {
-                text: `Right hand or arm`,
-                options: [
-                    {
-                        text: `Feeling is very good - No problems`,
-                        score: 0,
-                        checked: false
-                    }, {
-                        text: `Feeling is good`,
-                        score: 1,
-                        checked: false
-                    }, {
-                        text: `Feeling is fair`,
-                        score: 2,
-                        checked: false
-                    }, {
-                        text: `Feeling is poor`,
-                        score: 3,
-                        checked: false
-                    }, {
-                        text: `Feeling is very poor or completely gone`,
-                        score: 4,
-                        checked: false
-                    }
-                ]
+                text: `Right hand or arm`
             }, {
-                text: `Left hand or arm`,
-                options: [
-                    {
-                        text: `Feeling is very good - No problems`,
-                        score: 0,
-                        checked: false
-                    }, {
-                        text: `Feeling is good`,
-                        score: 1,
-                        checked: false
-                    }, {
-                        text: `Feeling is fair`,
-                        score: 2,
-                        checked: false
-                    }, {
-                        text: `Feeling is poor`,
-                        score: 3,
-                        checked: false
-                    }, {
-                        text: `Feeling is very poor or completely gone`,
-                        score: 4,
-                        checked: false
-                    }
-                ]
+                text: `Left hand or arm`
             }, {
-                text: `Right foot or leg`,
-                options: [
-                    {
-                        text: `Feeling is very good - No problems`,
-                        score: 0,
-                        checked: false
-                    }, {
-                        text: `Feeling is good`,
-                        score: 1,
-                        checked: false
-                    }, {
-                        text: `Feeling is fair`,
-                        score: 2,
-                        checked: false
-                    }, {
-                        text: `Feeling is poor`,
-                        score: 3,
-                        checked: false
-                    }, {
-                        text: `Feeling is very poor or completely gone`,
-                        score: 4,
-                        checked: false
-                    }
-                ]
+                text: `Right foot or leg`
             }, {
-                text: `Left foot or leg`,
-                options: [
-                    {
-                        text: `Feeling is very good - No problems`,
-                        score: 0,
-                        checked: false
-                    }, {
-                        text: `Feeling is good`,
-                        score: 1,
-                        checked: false
-                    }, {
-                        text: `Feeling is fair`,
-                        score: 2,
-                        checked: false
-                    }, {
-                        text: `Feeling is poor`,
-                        score: 3,
-                        checked: false
-                    }, {
-                        text: `Feeling is very poor or completely gone`,
-                        score: 4,
-                        checked: false
-                    }
-                ]
+                text: `Left foot or leg`
             }
         ]
     },
     q5: {
         text: `In general, how much strength do you have to raise each arm and leg in the air?`,
+        commonOptions: [
+            {
+                text: `Feeling is very good - No problems`,
+                score: 0,
+                checked: false
+            }, {
+                text: `Feeling is good`,
+                score: 1,
+                checked: false
+            }, {
+                text: `Feeling is fair`,
+                score: 2,
+                checked: false
+            }, {
+                text: `Feeling is poor`,
+                score: 3,
+                checked: false
+            }, {
+                text: `Feeling is very poor or completely gone`,
+                score: 4,
+                checked: false
+            }
+        ],
         sub: [
             {
-                text: `Right Arm`,
-                options: [
-                    {
-                        text: `Feeling is very good - No problems`,
-                        score: 0,
-                        checked: false
-                    }, {
-                        text: `Feeling is good`,
-                        score: 1,
-                        checked: false
-                    }, {
-                        text: `Feeling is fair`,
-                        score: 2,
-                        checked: false
-                    }, {
-                        text: `Feeling is poor`,
-                        score: 3,
-                        checked: false
-                    }, {
-                        text: `Feeling is very poor or completely gone`,
-                        score: 4,
-                        checked: false
-                    }
-                ]
+                text: `Right Arm`
             }, {
-                text: `Left Arm`,
-                options: [
-                    {
-                        text: `Feeling is very good - No problems`,
-                        score: 0,
-                        checked: false
-                    }, {
-                        text: `Feeling is good`,
-                        score: 1,
-                        checked: false
-                    }, {
-                        text: `Feeling is fair`,
-                        score: 2,
-                        checked: false
-                    }, {
-                        text: `Feeling is poor`,
-                        score: 3,
-                        checked: false
-                    }, {
-                        text: `Feeling is very poor or completely gone`,
-                        score: 4,
-                        checked: false
-                    }
-                ]
+                text: `Left Arm`
             }, {
-                text: `Right Leg`,
-                options: [
-                    {
-                        text: `Feeling is very good - No problems`,
-                        score: 0,
-                        checked: false
-                    }, {
-                        text: `Feeling is good`,
-                        score: 1,
-                        checked: false
-                    }, {
-                        text: `Feeling is fair`,
-                        score: 2,
-                        checked: false
-                    }, {
-                        text: `Feeling is poor`,
-                        score: 3,
-                        checked: false
-                    }, {
-                        text: `Feeling is very poor or completely gone`,
-                        score: 4,
-                        checked: false
-                    }
-                ]
+                text: `Right Leg`
             }, {
-                text: `Left Leg`,
-                options: [
-                    {
-                        text: `Feeling is very good - No problems`,
-                        score: 0,
-                        checked: false
-                    }, {
-                        text: `Feeling is good`,
-                        score: 1,
-                        checked: false
-                    }, {
-                        text: `Feeling is fair`,
-                        score: 2,
-                        checked: false
-                    }, {
-                        text: `Feeling is poor`,
-                        score: 3,
-                        checked: false
-                    }, {
-                        text: `Feeling is very poor or completely gone`,
-                        score: 4,
-                        checked: false
-                    }
-                ]
+                text: `Left Leg`
             }
         ]
     },
     q6: {
         text: `In general, do muscle spasms or stiffness ("spasticity") make it hard for you to use (bend or straighten) your arms and legs?`,
         header: `Stiffness and spasms…`,
-        sub6: [
+        commonOptions: [
             {
-                text: `Right Arm`,
-                options: [
-                    {
-                        text: `I do not have stiffness or spasms`,
-                        score: 0,
-                        checked: false
-                    }, {
-                        text: `Mild, do not make it hard for me to use`,
-                        score: 1,
-                        checked: false
-                    }, {
-                        text: `Moderate stiffness, but with effort I can use`,
-                        score: 2,
-                        checked: false
-                    }, {
-                        text: `Sometimes I cannot overcome the stiffness to use my arm or leg`,
-                        score: 3,
-                        checked: false
-                    }, {
-                        text: `My arm or leg is so contracted that I cannot use it at all`,
-                        score: 4,
-                        checked: false
-                    }
-                ]
+                text: `I do not have stiffness or spasms`,
+                score: 0,
+                checked: false
             }, {
-                text: `Left Arm`,
-                options: [
-                    {
-                        text: `I do not have stiffness or spasms`,
-                        score: 0,
-                        checked: false
-                    }, {
-                        text: `Mild, do not make it hard for me to use`,
-                        score: 1,
-                        checked: false
-                    }, {
-                        text: `Moderate stiffness, but with effort I can use`,
-                        score: 2,
-                        checked: false
-                    }, {
-                        text: `Sometimes I cannot overcome the stiffness to use my arm or leg`,
-                        score: 3,
-                        checked: false
-                    }, {
-                        text: `My arm or leg is so contracted that I cannot use it at all`,
-                        score: 4,
-                        checked: false
-                    }
-                ]
+                text: `Mild, do not make it hard for me to use`,
+                score: 1,
+                checked: false
             }, {
-                text: `Right Leg`,
-                options: [
-                    {
-                        text: `I do not have stiffness or spasms`,
-                        score: 0,
-                        checked: false
-                    }, {
-                        text: `Mild, do not make it hard for me to use`,
-                        score: 1,
-                        checked: false
-                    }, {
-                        text: `Moderate stiffness, but with effort I can use`,
-                        score: 2,
-                        checked: false
-                    }, {
-                        text: `Sometimes I cannot overcome the stiffness to use my arm or leg`,
-                        score: 3,
-                        checked: false
-                    }, {
-                        text: `My arm or leg is so contracted that I cannot use it at all`,
-                        score: 4,
-                        checked: false
-                    }
-                ]
+                text: `Moderate stiffness, but with effort I can use`,
+                score: 2,
+                checked: false
             }, {
-                text: `Left Leg`,
-                options: [
-                    {
-                        text: `I do not have stiffness or spasms`,
-                        score: 0,
-                        checked: false
-                    }, {
-                        text: `Mild, do not make it hard for me to use`,
-                        score: 1,
-                        checked: false
-                    }, {
-                        text: `Moderate stiffness, but with effort I can use`,
-                        score: 2,
-                        checked: false
-                    }, {
-                        text: `Sometimes I cannot overcome the stiffness to use my arm or leg`,
-                        score: 3,
-                        checked: false
-                    }, {
-                        text: `My arm or leg is so contracted that I cannot use it at all`,
-                        score: 4,
-                        checked: false
-                    }
-                ]
+                text: `Sometimes I cannot overcome the stiffness to use my arm or leg`,
+                score: 3,
+                checked: false
+            }, {
+                text: `My arm or leg is so contracted that I cannot use it at all`,
+                score: 4,
+                checked: false
+            }
+        ],
+        sub: [
+            {
+                text: `Right Arm`
+            }, {
+                text: `Left Arm`
+            }, {
+                text: `Right Leg`
+            }, {
+                text: `Left Leg`
             }
         ]
     },
@@ -765,209 +578,125 @@ export const navMap = {
     },
     q8: {
         text: `In general, do tremors or coordination problems make it hard for you to use your arms and legs?`,
+        commonOptions: [
+            {
+                text: `I do not have tremors or coordination problems`,
+                score: 0,
+                checked: false
+            }, {
+                text: `Rarely make it hard for me to use`,
+                score: 'N/A',
+                checked: false
+            }, {
+                text: `Sometimes make it hard for me to use`,
+                score: 1,
+                checked: false
+            }, {
+                text: `Often make it hard for me to use`,
+                score: 2,
+                checked: false
+            }, {
+                text: `Always make it hard for me to use`,
+                score: 3,
+                checked: false
+            }
+        ],
         sub: [
             {
-                text: `Your arm(s)?`,
-                options: [
-                    {
-                        text: `I do not have tremors or coordination problems`,
-                        score: 0,
-                        checked: false
-                    }, {
-                        text: `Rarely make it hard for me to use`,
-                        score: 'N/A',
-                        checked: false
-                    }, {
-                        text: `Sometimes make it hard for me to use`,
-                        score: 1,
-                        checked: false
-                    }, {
-                        text: `Often make it hard for me to use`,
-                        score: 2,
-                        checked: false
-                    }, {
-                        text: `Always make it hard for me to use`,
-                        score: 3,
-                        checked: false
-                    }
-                ]
+                text: `Your arm(s)?`
             }, {
-                text: `Your leg(s)?`,
-                options: [
-                    {
-                        text: `I do not have tremors or coordination problems`,
-                        score: 0,
-                        checked: false
-                    }, {
-                        text: `Rarely make it hard for me to use`,
-                        score: 'N/A',
-                        checked: false
-                    }, {
-                        text: `Sometimes make it hard for me to use`,
-                        score: 1,
-                        checked: false
-                    }, {
-                        text: `Often make it hard for me to use`,
-                        score: 2,
-                        checked: false
-                    }, {
-                        text: `Always make it hard for me to use`,
-                        score: 3,
-                        checked: false
-                    }
-                ]
+                text: `Your leg(s)?`
             }
         ]
     },
     q9: {
         text: `In general, how much muscle weakness do you have in your face?`,
+        commonOptions: [
+            {
+                text: `I do not have muscle weakness in my face`,
+                score: 0,
+                checked: false
+            }, {
+                text: `A little, such as when I furrow my eyebrows or laugh`,
+                score: 1,
+                checked: false
+            }, {
+                text: `A lot, such as trouble with drooling or when closing my eye(s)`,
+                score: 2,
+                checked: false
+            }, {
+                text: `Total weakness or palsy, such as Bell's palsy`,
+                score: 3,
+                checked: false
+            }
+        ],
         sub: [
             {
-                text: `Right side of your face`,
-                options: [
-                    {
-                        text: `I do not have muscle weakness in my face`,
-                        score: 0,
-                        checked: false
-                    }, {
-                        text: `A little, such as when I furrow my eyebrows or laugh`,
-                        score: 1,
-                        checked: false
-                    }, {
-                        text: `A lot, such as trouble with drooling or when closing my eye(s)`,
-                        score: 2,
-                        checked: false
-                    }, {
-                        text: `Total weakness or palsy, such as Bell's palsy`,
-                        score: 3,
-                        checked: false
-                    }
-                ]
+                text: `Right side of your face`
             }, {
-                text: `Left side of your face`,
-                options: [
-                    {
-                        text: `I do not have muscle weakness in my face`,
-                        score: 0,
-                        checked: false
-                    }, {
-                        text: `A little, such as when I furrow my eyebrows or laugh`,
-                        score: 1,
-                        checked: false
-                    }, {
-                        text: `A lot, such as trouble with drooling or when closing my eye(s)`,
-                        score: 2,
-                        checked: false
-                    }, {
-                        text: `Total weakness or palsy, such as Bell's palsy`,
-                        score: 3,
-                        checked: false
-                    }
-                ]
+                text: `Left side of your face`
             }
         ]
     },
     q10: {
         text: `In general, how much feeling do you have in your face?`,
+        commonOptions: [
+            {
+                text: `Feeling is very good. No numbness or pain.`,
+                score: 0,
+                checked: false
+            }, {
+                text: `Feeling is good. Some numbness.`,
+                score: 1,
+                checked: false
+            }, {
+                text: `Feeling is fair. Hard to tell sharp touch from dull touch.`,
+                score: 2,
+                checked: false
+            }, {
+                text: `Feeling is poor. Mild pain.`,
+                score: 3,
+                checked: false
+            }, {
+                text: `Feeling is very poor or gone. Moderate to severe pain.`,
+                score: 4,
+                checked: false
+            }
+        ],
         sub: [
             {
-                text: `Right side of your face`,
-                options: [
-                    {
-                        text: `Feeling is very good. No numbness or pain.`,
-                        score: 0,
-                        checked: false
-                    }, {
-                        text: `Feeling is good. Some numbness.`,
-                        score: 1,
-                        checked: false
-                    }, {
-                        text: `Feeling is fair. Hard to tell sharp touch from dull touch.`,
-                        score: 2,
-                        checked: false
-                    }, {
-                        text: `Feeling is poor. Mild pain.`,
-                        score: 3,
-                        checked: false
-                    }, {
-                        text: `Feeling is very poor or gone. Moderate to severe pain.`,
-                        score: 4,
-                        checked: false
-                    }
-                ]
+                text: `Right side of your face`
             }, {
-                text: `Left side of your face`,
-                options: [
-                    {
-                        text: `Feeling is very good. No numbness or pain.`,
-                        score: 0,
-                        checked: false
-                    }, {
-                        text: `Feeling is good. Some numbness.`,
-                        score: 1,
-                        checked: false
-                    }, {
-                        text: `Feeling is fair. Hard to tell sharp touch from dull touch.`,
-                        score: 2,
-                        checked: false
-                    }, {
-                        text: `Feeling is poor. Mild pain.`,
-                        score: 3,
-                        checked: false
-                    }, {
-                        text: `Feeling is very poor or gone. Moderate to severe pain.`,
-                        score: 4,
-                        checked: false
-                    }
-                ]
+                text: `Left side of your face`
             }
         ]
     },
     q11: {
         text: `Check the answer that best describes your ability to see. If you wear glasses or contact lenses, describe your corrected vision.`,
+        commonOptions: [
+            {
+                text: `I have no problems with my ability to see.`,
+                score: 0,
+                checked: false
+            }, {
+                text: `My vision is slightly blurry`,
+                score: 1,
+                checked: false
+            }, {
+                text: `My vision is very blurry`,
+                score: 2,
+                checked: false
+            }, {
+                text: `I am blind, or almost blind, in that eye`,
+                score: 3,
+                checked: false
+            }
+        ],
         sub: [
             {
-                text: `Problems with vision in your right eye`,
-                options: [
-                    {
-                        text: `I have no problems with my ability to see.`,
-                        score: 0,
-                        checked: false
-                    }, {
-                        text: `My vision is slightly blurry`,
-                        score: 1,
-                        checked: false
-                    }, {
-                        text: `My vision is very blurry`,
-                        score: 2,
-                        checked: false
-                    }, {
-                        text: `I am blind, or almost blind, in that eye`,
-                        score: 3,
-                        checked: false
-                    }
-                ]
+                text: `Problems with vision in your right eye`
             }, {
-                text: `Problems with vision in your left eye`,
-                options: [
-                    {
-                        text: `I have no problems with my ability to see.`,
-                        score: 0,
-                        checked: false
-                    }, {
-                        text: `My vision is slightly blurry`,
-                        score: 1,
-                        checked: false
-                    }, {
-                        text: `My vision is very blurry`,
-                        score: 2,
-                        checked: false
-                    }, {
-                        text: `I am blind, or almost blind, in that eye`,
-                        score: 3,
-                        checked: false
-                    }
-                ]
+                text: `Problems with vision in your left eye`
             }
         ]
     },
@@ -1246,7 +975,6 @@ export const navMap = {
     },
     q21: {
         text: `On an average day, which of the following describes your fatigue?`,
-        jumpTo: 'q22',
         options: [
             {
                 text: `I experience no fatigue`,
@@ -1305,9 +1033,3 @@ export const navMap = {
         ]
     }
 };
-
-export const navigationMap = {
-    "q1:a:0": "q3",
-    "q1:a:1": "q1:b",
-    "q1:a:2": "q1:c"
-}

@@ -1,28 +1,27 @@
 <md-card class="mainContainer">
   <md-card-content>
-    <div *ngIf='descr1'>
-      <b>{{descr1}}</b>
+    <div *ngIf='pageObject.descr1'>
+      <b>{{pageObject.descr1}}</b>
       <br/>
     </div>
-    <div *ngIf='descr2' style="margin-bottom:3em;">
-      <b>{{descr2}}</b>
+    <div *ngIf='pageObject.descr2' style="margin-bottom:3em;">
+      <b>{{pageObject.descr2}}</b>
     </div>
   </md-card-content>
-  <p>{{targetObject.text}}</p>
-  <div *ngIf="targetObject.options">
-    <md-radio-button (change)="change($event)" [value]="option" name="group1" [checked]="option.checked" *ngFor="let option of targetObject.options">{{option.text}}</md-radio-button>
+  <p>{{pageObject.text}}</p>
+  <div *ngIf="pageObject.options">
+    <md-radio-button (change)="change($event)" [value]="option" name="group1" [checked]="option.checked" *ngFor="let option of pageObject.options">{{option.text}}</md-radio-button>
   </div>
-  <div class="subtable" *ngIf="targetObject.sub">
+  <div class="subtable" *ngIf="pageObject.sub">
     <table>
       <tr>
         <th class="emptysec"></th>     
-        <th *ngFor="let option of targetObject.commonOptions">{{option.text}}</th>
+        <th *ngFor="let option of pageObject.commonOptions || pageObject.sub[0].options">{{option.text}}</th>
       </tr>
       <tbody>
-        <tr *ngFor="let item of targetObject.sub ; let g = index">
+        <tr *ngFor="let item of pageObject.sub ; let g = index">
           <td>{{item.text}}</td>
-          <td *ngFor="let option of item.options ; let i = index">
-              <!-- <td *ngFor="let option of targetObject.sub[0].options"> -->
+          <td *ngFor="let option of item.options ; let i = index">              
             <md-radio-button [name]="g"  style="display:inline" (change)="change($event)" [value]="option" [checked]="option.checked"></md-radio-button>
           </td>
         </tr>
@@ -73,5 +72,5 @@
       </tbody>
     </table>
   </div> -->
-  <app-navigate [selectedOption]="selectedOption" [resultSet]="results"></app-navigate>
+  <app-navigate [selectedOption]="selectedOption" [pageName]="pageName" [pageObject]= "pageObject"></app-navigate>
 </md-card>
