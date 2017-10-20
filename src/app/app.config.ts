@@ -159,6 +159,7 @@ export const navMap = {
     q3: {
         text: `Do you have any of the problems below?`,
         isMultiOptions: true,
+        type: 'table',
         sub: [
             {
                 text: `Change in feeling (e.g. tingling, numbness) in hands, feet, arms or legs?`,
@@ -500,8 +501,8 @@ export const navMap = {
         ]
     },
     q7: {
-        // text: `In general, how is your:`,
-        sub1: [
+        section: true,
+        sub: [
             {
                 text: `In general, how is your balance when standing?`,
                 options: [

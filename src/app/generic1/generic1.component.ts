@@ -11,6 +11,7 @@ export class Generic1Component implements OnInit {
   selectedOption : any;
 
   constructor(private router : Router, private activatedRoute : ActivatedRoute) {
+    this.processNavMap();
     activatedRoute
       .params
       .subscribe(param => {
@@ -20,7 +21,22 @@ export class Generic1Component implements OnInit {
         this.showPage();
       });
   }
-
+  processNavMap() {    
+    _
+      .keys(navMap)
+      .forEach(function (key) {
+        let q = navMap[key];
+        if (q.options) {
+          q.type = 'options';
+        } else if (q.header) {
+          q.type = 'header'
+        } else if (q.section) {
+          q.type = 'section'
+        } else {
+          q.type = 'table'
+        }
+      });
+  }
   showPage() {
     let options = navMap[this.pageName].options;
     let sub = this.pageObject.sub;
@@ -82,8 +98,8 @@ export class Generic1Component implements OnInit {
 // } SetChangeEvent(value, id) {   this.UserSelectedAns[id] = value; }
 // GetChangeEvent(id) {   return (this.UserSelectedAns[id]); }
 // updateArray(event, arr : responses[]) {   let objIndex = arr.findIndex(obj =>
-// obj.qx_code == event.value.qx_code);   if (objIndex == -1) {     this.res = {
-//       qx_code: event.value.qx_code,       qx_text: event.value.qx_text,
+// obj.qx_code == event.value.qx_code);   if (objIndex == -1) {     this.res =
+// {       qx_code: event.value.qx_code,       qx_text: event.value.qx_text,
 // answer_text: event.value.text,       answer_text_score: event.value.score,
 // jumpTo: event.value.jumpTo     };     let pushIndex = this.sortedIndex(arr,
 // this.res);     arr.splice(pushIndex, 0, this.res);   } else {
@@ -101,19 +117,19 @@ export class Generic1Component implements OnInit {
 // this.sourceObject.options !== 'undefined') {     for (let option of
 // this.sourceObject.options) {       // for first time loding       if
 // (option.score == 0) {         this.selectedOption = option;       }       //
-// for next loading       let selected = this.GetChangeEvent(option.qx_code); if
-// (typeof selected !== 'undefined') {         if (selected.text ===
+// for next loading       let selected = this.GetChangeEvent(option.qx_code);
+// if (typeof selected !== 'undefined') {         if (selected.text ===
 // option.text) {           option.checked = true;           this.selectedOption
-// = selected;         } else {           option.checked = false;         }  }
-// }   }   if (typeof this.sourceObject.sub != 'undefined') {     for (let entry
+// = selected;         } else {           option.checked = false;         }  } }
+//   }   if (typeof this.sourceObject.sub != 'undefined') {     for (let entry
 // of this.sourceObject.sub) {       for (let option of entry.options) {
 // this.selectedOption = option;         let selected =
 // this.GetChangeEvent(option.qx_code);         if (typeof selected !=
 // 'undefined') {           if (selected.text == option.text) {
 // console.log(selected.qx_code);             console.log(option.text);
 // option.checked = true;             this.selectedOption = selected;   } else {
-//             option.checked = false;           }         }       }    }   } if
-// (typeof this.sourceObject.sub1 != 'undefined') {     for (let entry of
+//             option.checked = false;           }         }       }    }   }
+// if (typeof this.sourceObject.sub1 != 'undefined') {     for (let entry of
 // this.sourceObject.sub1) {       for (let option of entry.options) { let
 // selected = this.GetChangeEvent(option.qx_code);         if (typeof selected
 // != 'undefined') {           if (selected.text == option.text) {   /*
