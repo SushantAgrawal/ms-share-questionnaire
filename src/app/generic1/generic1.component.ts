@@ -11,7 +11,7 @@ export class Generic1Component implements OnInit {
   selectedOption : any;
 
   constructor(private router : Router, private activatedRoute : ActivatedRoute) {
-    this.processNavMap();
+    this.tweakNavMap();
     activatedRoute
       .params
       .subscribe(param => {
@@ -21,7 +21,7 @@ export class Generic1Component implements OnInit {
         this.showPage();
       });
   }
-  processNavMap() {    
+  tweakNavMap() {    
     _
       .keys(navMap)
       .forEach(function (key) {
