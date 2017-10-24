@@ -799,7 +799,7 @@ export const navMap = {
     },
     q16: {
         text: `On an average day, which of the following best describes your…`,
-        sub1: [
+        sub: [
             {
                 text: `Constipation`,
                 options: [
@@ -843,7 +843,7 @@ export const navMap = {
     },
     q17: {
         text: `In the last 4 weeks`,
-        sub1: [
+        sub: [
             {
                 text: `How often did you have a sudden and uncomfortable feeling that you had to urinate soon ("urgency")?`,
                 options: [
