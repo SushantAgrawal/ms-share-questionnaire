@@ -21,7 +21,7 @@ export class Generic1Component implements OnInit {
         this.showPage();
       });
   }
-  tweakNavMap() {    
+  tweakNavMap() {
     _
       .keys(navMap)
       .forEach(function (key) {
@@ -48,8 +48,8 @@ export class Generic1Component implements OnInit {
       }
     });
 
-    let option = options && options.find(x => x.checked);
-    option && (this.selectedOption = option);
+    this.selectedOption = options && options.find(x => x.checked);
+    // option && (this.selectedOption = option);
   }
 
   ngOnInit() {}
@@ -68,7 +68,7 @@ export class Generic1Component implements OnInit {
     this.selectedOption = event.value;
     this.selectedOption.checked = true;
     this.selectedOption.pageName = this.pageName;
-    this.pageObject.isMultiOptions && this.prepareMultiOptions();
+    this.pageObject.isMultiOptions && this.prepareMultiOptions();//isMultiOptions true means q3    
   }
 
   prepareMultiOptions() {

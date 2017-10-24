@@ -976,6 +976,7 @@ export const navMap = {
     },
     q21: {
         text: `On an average day, which of the following describes your fatigue?`,
+        jumpTo:'q22',
         options: [
             {
                 text: `I experience no fatigue`,
@@ -1005,6 +1006,7 @@ export const navMap = {
     },
     q22: {
         text: `Did you feel rested on waking in the morning?`,
+        jumpTo:'q23',
         options: [
             {
                 text: `All of the Time`,
