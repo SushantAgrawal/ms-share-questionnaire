@@ -9,6 +9,6 @@ import {MsShareService} from './ms-share.service';
 export class AppComponent {
   title = 'app';
   constructor(private msShareService: MsShareService){
-
+    console.log('app.component');
   }
 }
