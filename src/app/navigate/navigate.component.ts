@@ -9,37 +9,36 @@ export class NavigateComponent implements OnInit {
   @Input()pageObject : any;
 
   questionsStack : any[] = [];
+  pagesStack : string[] = [];
 
   constructor(private router : Router) {}
 
   ngOnInit() {}
 
   next() {
+    let option,jumpTo;
     if (transitArray.includes(this.pageName)) {
       if (navMap['multiOptions'] && navMap['multiOptions'].length > 0) {
-        this.selectedOption = navMap['multiOptions'].shift();
+        option = navMap['multiOptions'].shift();
       } else {
-        this.selectedOption = {
+        option = {
           pageName: 'q3',
           jumpTo: 'q21'
-        };
+        }
       }
     }
-
-    let jumpTo = this.selectedOption && this.selectedOption.jumpTo;
-    this.selectedOption && this
-      .questionsStack
-      .push(this.selectedOption);
-    jumpTo && this
-      .router
-      .navigate(['generic1', jumpTo]);
+    if(option){
+      jumpTo = option.jumpTo;
+    } else{
+      jumpTo = this.selectedOption.jumpTo
+    }
+    this.pagesStack.push(this.pageName);
+    this.router.navigate(['generic1',jumpTo]);    
   }
 
   previous() {
-    let option;
-    (this.questionsStack.length > 0) && (option = this.questionsStack.pop());
-    option && (this.selectedOption = option);
-    let jumpTo = option && option.pageName;
+    let jumpTo;
+    (this.pagesStack.length > 0) && (jumpTo = this.pagesStack.pop());
     jumpTo && this
       .router
       .navigate(['generic1', jumpTo]);
