@@ -117,6 +117,7 @@ export const navMap = {
     },
     q2: {
         text: `When you move about, how often do you use any of the following?`,
+        jumpTo:'q3',
         commonOptions: [
             {
                 text: `Never or rarely`,
