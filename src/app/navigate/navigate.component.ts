@@ -1,7 +1,9 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Router} from '@angular/router';
 import {Location} from '@angular/common';
+import {MsShareService} from '../ms-share.service';
 import {navMap, transitArray} from '../app.config';
+import * as _ from "lodash";
 
 @Component({selector: 'app-navigate', templateUrl: './navigate.component.html', styleUrls: ['./navigate.component.css']})
 export class NavigateComponent implements OnInit {
@@ -11,8 +13,9 @@ export class NavigateComponent implements OnInit {
 
   pagesStack : string[] = [];
   pointer : number = 0;
+  testJumpTo:string='q22';
 
-  constructor(private router : Router, private location : Location) {}
+  constructor(private router : Router, private location : Location, private msShareService:MsShareService) {}
 
   ngOnInit() {}
 
@@ -37,7 +40,13 @@ export class NavigateComponent implements OnInit {
     } else if (this.selectedOption) {
       jumpTo = this.selectedOption.jumpTo
     } else if (this.pageObject.jumpTo) { //default one when no options are selected
-      jumpTo = this.pageObject.jumpTo;
+      let sex = this.msShareService.get('queryParams').sex || 'male';
+      let isFunc = _.isFunction(this.pageObject.jumpTo);
+      jumpTo = isFunc
+        ? this
+          .pageObject
+          .jumpTo(sex)
+        : this.pageObject.jumpTo;
     }
     if (jumpTo) {
       this

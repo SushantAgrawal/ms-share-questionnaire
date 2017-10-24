@@ -117,7 +117,7 @@ export const navMap = {
     },
     q2: {
         text: `When you move about, how often do you use any of the following?`,
-        jumpTo:'q3',
+        jumpTo: 'q3',
         commonOptions: [
             {
                 text: `Never or rarely`,
@@ -977,7 +977,7 @@ export const navMap = {
     },
     q21: {
         text: `On an average day, which of the following describes your fatigue?`,
-        jumpTo:'q22',
+        jumpTo: 'q22',
         options: [
             {
                 text: `I experience no fatigue`,
@@ -1007,7 +1007,7 @@ export const navMap = {
     },
     q22: {
         text: `Did you feel rested on waking in the morning?`,
-        jumpTo:'q23',
+        jumpTo: 'q24a',
         options: [
             {
                 text: `All of the Time`,
@@ -1033,6 +1033,111 @@ export const navMap = {
                 text: `None of the Time`,
                 score: 3,
                 checked: false
+            }
+        ]
+    },
+    q24a: {
+        text: `Overall, how satisfied were you with your sexual function during the past 4 weeks?`,
+        jumpTo: (sex) => sex == 'male'
+            ? 'q24b1'
+            : 'q24b2',
+        options: [
+            {
+                text: `Very dissatisfied`,
+                score: 1,
+                checked: false
+            }, {
+                text: `Somewhat dissatisfied`,
+                score: 2,
+                checked: false
+            }, {
+                text: `Neither dissatisfied nor satisfied`,
+                score: 3,
+                checked: false
+            }, {
+                text: `Somewhat satisfied`,
+                score: 4,
+                checked: false
+            }, {
+                text: `Very satisfied`,
+                score: 5,
+                checked: false
+            }
+        ]
+    },
+    q24b1: {
+        text: `How much of a problem was each of the following for you during the past 4 weeks?`,
+        jumpTo: `q25`,
+        commonOptions: [
+            {
+                text: `Not a problem`,
+                score: 1,
+                checked: false,
+                jumpTo: 'q25'
+            }, {
+                text: `A little of a problem`,
+                score: 2,
+                checked: false,
+                jumpTo: 'q25'
+            }, {
+                text: `Somewhat of a problem`,
+                score: 3,
+                checked: false,
+                jumpTo: 'q25'
+            }, {
+                text: `Very much a problem`,
+                score: 4,
+                checked: false,
+                jumpTo: 'q25'
+            }
+        ],
+        sub: [
+            {
+                text: `Lack of sexual interest`
+            }, {
+                text: `Difficulty getting or keeping an erection`
+            }, {
+                text: `Difficulty having orgasm`
+            }, {
+                text: `Ability to satisfy sexual partner`
+            }
+        ]
+    },
+    q24b2: {
+        text: `How much of a problem was each of the following for you during the past 4 weeks?`,
+        jumpTo: `q25`,
+        commonOptions: [
+            {
+                text: `Not a problem`,
+                score: 1,
+                checked: false,
+                jumpTo: 'q25'
+            }, {
+                text: `A little of a problem`,
+                score: 2,
+                checked: false,
+                jumpTo: 'q25'
+            }, {
+                text: `Somewhat of a problem`,
+                score: 3,
+                checked: false,
+                jumpTo: 'q25'
+            }, {
+                text: `Very much a problem`,
+                score: 4,
+                checked: false,
+                jumpTo: 'q25'
+            }
+        ],
+        sub: [
+            {
+                text: `Lack of sexual interest`
+            }, {
+                text: `Inadequate lubrication`
+            }, {
+                text: `Difficulty having orgasm`
+            }, {
+                text: `Ability to satisfy sexual partner`
             }
         ]
     }
