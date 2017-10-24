@@ -18,9 +18,7 @@ export class NavigateComponent implements OnInit {
   next() {
     let jumpTo;
     let multiOptions = navMap['multiOptions'];
-    if (this.selectedOption) {
-      jumpTo = this.selectedOption.jumpTo
-    } else if (transitArray.includes(this.pageName)) {
+    if (transitArray.includes(this.pageName)) {
       if (multiOptions && multiOptions.length > 0) {
         jumpTo = multiOptions
           .shift()
@@ -28,6 +26,8 @@ export class NavigateComponent implements OnInit {
       } else {
         jumpTo = 'q21';
       }
+    } else if (this.selectedOption) {
+      jumpTo = this.selectedOption.jumpTo
     } else if (this.pageObject.jumpTo) {
       jumpTo = this.pageObject.jumpTo;
     }
