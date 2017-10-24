@@ -1,5 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {Router} from '@angular/router';
+import {Location} from '@angular/common';
 import {navMap, transitArray} from '../app.config';
 
 @Component({selector: 'app-navigate', templateUrl: './navigate.component.html', styleUrls: ['./navigate.component.css']})
@@ -8,10 +9,10 @@ export class NavigateComponent implements OnInit {
   @Input()pageName : string;
   @Input()pageObject : any;
 
-  questionsStack : any[] = [];
   pagesStack : string[] = [];
+  pointer : number = 0;
 
-  constructor(private router : Router) {}
+  constructor(private router : Router, private location : Location) {}
 
   ngOnInit() {}
 
@@ -24,7 +25,14 @@ export class NavigateComponent implements OnInit {
           .shift()
           .jumpTo;
       } else {
-        jumpTo = 'q21';
+        if (this.pointer < (this.pagesStack.length - 1)) {
+          this
+            .location
+            .forward();
+          this.pointer++;
+        } else {
+          jumpTo = 'q21';
+        }
       }
     } else if (this.selectedOption) {
       jumpTo = this.selectedOption.jumpTo
@@ -35,6 +43,7 @@ export class NavigateComponent implements OnInit {
       this
         .pagesStack
         .push(this.pageName);
+      this.pointer = this.pagesStack.length - 1;
       this
         .router
         .navigate(['generic1', jumpTo]);
@@ -42,10 +51,13 @@ export class NavigateComponent implements OnInit {
   }
 
   previous() {
-    let jumpTo;
-    (this.pagesStack.length > 0) && (jumpTo = this.pagesStack.pop());
-    jumpTo && this
-      .router
-      .navigate(['generic1', jumpTo]);
+    // let jumpTo; (this.pagesStack.length > 0) && (jumpTo = this.pagesStack.pop());
+    // jumpTo && this   .router   .navigate(['generic1', jumpTo]);
+    if (this.pointer > 0) {
+      this.pointer--;
+    }
+    this
+      .location
+      .back();
   }
 }
