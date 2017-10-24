@@ -47,9 +47,7 @@ export class Generic1Component implements OnInit {
         x.options = _.cloneDeep(toBeCloned);
       }
     });
-
     this.selectedOption = options && options.find(x => x.checked);
-    // option && (this.selectedOption = option);
   }
 
   ngOnInit() {}
