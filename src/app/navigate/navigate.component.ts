@@ -13,7 +13,6 @@ export class NavigateComponent implements OnInit {
 
   pagesStack : string[] = [];
   pointer : number = 0;
-  testJumpTo:string='q22';
 
   constructor(private router : Router, private location : Location, private msShareService:MsShareService) {}
 
