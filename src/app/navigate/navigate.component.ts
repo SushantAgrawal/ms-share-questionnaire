@@ -28,7 +28,7 @@ export class NavigateComponent implements OnInit {
       }
     } else if (this.selectedOption) {
       jumpTo = this.selectedOption.jumpTo
-    } else if (this.pageObject.jumpTo) {
+    } else if (this.pageObject.jumpTo) { //default one when no options are selected
       jumpTo = this.pageObject.jumpTo;
     }
     if (jumpTo) {
