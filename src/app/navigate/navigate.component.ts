@@ -65,19 +65,15 @@ export class NavigateComponent implements OnInit {
       debugger;
       let multiOptions = navMap['multiOptions'];
       let q3 = _.find(navMap, { 'isMultiOptions': true })
-      //let options= _.find(q3.sub, {'isMultiOptions':true })
-     // _.forEach(q3.sub, function (value, key) {
-     //   _.forEach
-     // });
-    q3
-      .sub
-      .forEach(x => {
-        if (x.options[0].jumpTo == this.pageName) {
-         this
-          multiOptions.splice(0,0,x.options[0]);
-        }
-      });
-     navMap['multiOptions'] = _.sortBy( multiOptions, ['jumpTo']);
+      q3
+        .sub
+        .forEach(x => {
+          if (x.options[0].jumpTo == this.pageName) {
+            this
+            multiOptions.splice(0, 0, x.options[0]);
+          }
+        });
+      navMap['multiOptions'] = multiOptions;
     }
 
     if (this.pointer > 0) {
