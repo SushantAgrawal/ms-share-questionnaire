@@ -1,22 +1,22 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {Router} from '@angular/router';
-import {Location} from '@angular/common';
-import {MsShareService} from '../ms-share.service';
-import {navMap, transitArray} from '../app.config';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { MsShareService } from '../ms-share.service';
+import { navMap, transitArray } from '../app.config';
 import * as _ from "lodash";
 
-@Component({selector: 'app-navigate', templateUrl: './navigate.component.html', styleUrls: ['./navigate.component.css']})
+@Component({ selector: 'app-navigate', templateUrl: './navigate.component.html', styleUrls: ['./navigate.component.css'] })
 export class NavigateComponent implements OnInit {
-  @Input()selectedOption : any;
-  @Input()pageName : string;
-  @Input()pageObject : any;
+  @Input() selectedOption: any;
+  @Input() pageName: string;
+  @Input() pageObject: any;
 
-  pagesStack : string[] = [];
-  pointer : number = 0;
+  pagesStack: string[] = [];
+  pointer: number = 0;
 
-  constructor(private router : Router, private location : Location, private msShareService:MsShareService) {}
+  constructor(private router: Router, private location: Location, private msShareService: MsShareService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   next() {
     let jumpTo;
@@ -61,6 +61,25 @@ export class NavigateComponent implements OnInit {
   previous() {
     // let jumpTo; (this.pagesStack.length > 0) && (jumpTo = this.pagesStack.pop());
     // jumpTo && this   .router   .navigate(['generic1', jumpTo]);
+    if (transitArray.includes(this.pageName)) {
+      debugger;
+      let multiOptions = navMap['multiOptions'];
+      let q3 = _.find(navMap, { 'isMultiOptions': true })
+      //let options= _.find(q3.sub, {'isMultiOptions':true })
+     // _.forEach(q3.sub, function (value, key) {
+     //   _.forEach
+     // });
+    q3
+      .sub
+      .forEach(x => {
+        if (x.options[0].jumpTo == this.pageName) {
+         this
+          multiOptions.splice(0,0,x.options[0]);
+        }
+      });
+     navMap['multiOptions'] = _.sortBy( multiOptions, ['jumpTo']);
+    }
+
     if (this.pointer > 0) {
       this.pointer--;
     }
