@@ -18,3 +18,10 @@ md-radio-button {
     min-width: 8em;
     /* text-align: center; */
 }
+.scale-item{
+    display: flex;
+    border-top:solid 1px #c6d9f1; padding-top: 10px;
+}
+.scale-item .mat-radio-button{
+   margin-right: 25px;
+}

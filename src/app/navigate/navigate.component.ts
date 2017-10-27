@@ -13,6 +13,7 @@ export class NavigateComponent implements OnInit {
 
   pagesStack: string[] = [];
   pointer: number = 0;
+  shiftOption: any;
 
   constructor(private router: Router, private location: Location, private msShareService: MsShareService) { }
 
@@ -20,26 +21,43 @@ export class NavigateComponent implements OnInit {
 
   next() {
     let jumpTo;
+    let sex = this.msShareService.get('queryParams').Gender || 'male';
+    if (this.pageObject.isMultiOptions && this.pageObject.ScreenPage == 3) {
+      _.forEach(Screen, function (value) {
+        navMap['multiOptions'] = _.concat(navMap['multiOptions'], value);
+      });
+
+    }
     let multiOptions = navMap['multiOptions'];
     if (transitArray.includes(this.pageName)) {
-      if (multiOptions && multiOptions.length > 0) {
-        jumpTo = multiOptions
-          .shift()
-          .jumpTo;
-      } else {
-        if (this.pointer < (this.pagesStack.length - 1)) {
-          this
-            .location
-            .forward();
-          this.pointer++;
+      if (this.pageObject.isMultiOptions && this.pageObject.ScreenPage != null) {
+        jumpTo = this.pageObject.jumpTo;
+      }
+
+      if (!jumpTo) {
+        if (multiOptions && multiOptions.length > 0) {
+          this.shiftOption = multiOptions.shift();
+          jumpTo =
+            this.shiftOption.jumpTo;
         } else {
-          jumpTo = 'q21';
+          if (this.pointer < (this.pagesStack.length - 1)) {
+            this
+              .location
+              .forward();
+            this.pointer++;
+          } else {
+            jumpTo = 'q21';
+          }
         }
       }
     } else if (this.selectedOption) {
-      jumpTo = this.selectedOption.jumpTo
+      let isFunc = _.isFunction(this.selectedOption.jumpTo);
+      jumpTo = isFunc
+        ? this
+          .selectedOption
+          .jumpTo(sex)
+        : this.selectedOption.jumpTo;
     } else if (this.pageObject.jumpTo) { //default one when no options are selected
-      let sex = this.msShareService.get('queryParams').sex || 'male';
       let isFunc = _.isFunction(this.pageObject.jumpTo);
       jumpTo = isFunc
         ? this
@@ -47,6 +65,7 @@ export class NavigateComponent implements OnInit {
           .jumpTo(sex)
         : this.pageObject.jumpTo;
     }
+
     if (jumpTo) {
       this
         .pagesStack
@@ -61,20 +80,19 @@ export class NavigateComponent implements OnInit {
   previous() {
     // let jumpTo; (this.pagesStack.length > 0) && (jumpTo = this.pagesStack.pop());
     // jumpTo && this   .router   .navigate(['generic1', jumpTo]);
-    if (transitArray.includes(this.pageName)) {
-      debugger;
-      let multiOptions = navMap['multiOptions'];
-      let q3 = _.find(navMap, { 'isMultiOptions': true })
-      q3
-        .sub
-        .forEach(x => {
-          if (x.options[0].jumpTo == this.pageName) {
+    let page = this.pageName;
+    if (transitArray.includes(page)) {
+      _.forEach(Screen, function (value) {
+        value.forEach(x => {
+          console.log(page);
+          if (x.jumpTo == page) {
             this
-            multiOptions.splice(0, 0, x.options[0]);
+            navMap['multiOptions'].splice(0, 0, x);
           }
         });
-      navMap['multiOptions'] = multiOptions;
-    }
+      });
+
+    } 
 
     if (this.pointer > 0) {
       this.pointer--;

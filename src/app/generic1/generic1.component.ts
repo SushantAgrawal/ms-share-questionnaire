@@ -1,16 +1,17 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {navMap} from '../app.config';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { navMap } from '../app.config';
 import * as _ from "lodash";
 
-@Component({selector: 'app-generic1', templateUrl: './generic1.component.html', styleUrls: ['./generic1.component.css']})
+@Component({ selector: 'app-generic1', templateUrl: './generic1.component.html', styleUrls: ['./generic1.component.css'] })
 
 export class Generic1Component implements OnInit {
-  pageName : string;
-  pageObject : any;
-  selectedOption : any;
+  pageName: string;
+  pageObject: any;
+  selectedOption: any;
 
-  constructor(private router : Router, private activatedRoute : ActivatedRoute) {
+
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     this.tweakNavMap();
     activatedRoute
       .params
@@ -32,6 +33,8 @@ export class Generic1Component implements OnInit {
           q.type = 'header'
         } else if (q.section) {
           q.type = 'section'
+        } else if (q.scale) {
+          q.type = 'scale'
         } else {
           q.type = 'table'
         }
@@ -39,6 +42,7 @@ export class Generic1Component implements OnInit {
   }
   showPage() {
     let options = navMap[this.pageName].options;
+    let scale = navMap[this.pageName].scale;
     let sub = this.pageObject.sub;
     let commonOptions = this.pageObject.commonOptions;
     sub && commonOptions && sub.forEach(x => {
@@ -46,15 +50,21 @@ export class Generic1Component implements OnInit {
       if ((!x.options) || (x.options.length == 0)) {
         x.options = _.cloneDeep(toBeCloned);
       }
-    });
-    this.selectedOption = options && options.find(x => x.checked);
+    });    
+    this.selectedOption = options && options.find(x => x.checked);    
+    if (scale)
+    { 
+      this.selectedOption = scale && scale.find(x => x.checked); 
+    }
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   change(event) {
-    let options : any[] = this.pageObject.options;
+    let options: any[] = this.pageObject.options;
     options && options.forEach(x => x.checked = false);
+    let scale: any[] = this.pageObject.scale;
+    scale && scale.forEach(x => x.checked = false);
     let sub = this.pageObject.sub;
     if (sub) {
       //in html template name captures the index
@@ -70,15 +80,18 @@ export class Generic1Component implements OnInit {
   }
 
   prepareMultiOptions() {
-    navMap['multiOptions'] = [];
+    navMap['multiOptions'] = [];    
+    Screen[this.pageObject.ScreenPage] = [];
     this
       .pageObject
       .sub
       .forEach(x => {
         if (x.options[0].checked) {
           this
-          navMap['multiOptions'].push(x.options[0]);
+          Screen[this.pageObject.ScreenPage].push(x.options[0]);
         }
       });
+
+      //navMap.obj1.forEach(x=> x.)
   }
 }

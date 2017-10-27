@@ -4,7 +4,10 @@ export const welcomeMap = {
     all: 'welcomec'
 };
 export const transitArray = [
-    'q3',
+    'q3.1',
+    'q3.2',
+    'q3.3',
+    'q3.4',
     'q4',
     'q5',
     'q6',
@@ -24,16 +27,18 @@ export const transitArray = [
     'q20'
 ];
 // saby
-export const navMap = {
+export const Screen={}
+export const navMap = {    
     q1a: {
         descr1: `The first set of questions will ask about symptoms you might be experiencing. The experience of everyone with MS is different, and you may not experience all of the symptoms that we ask about.`,
         descr2: `Please try your best to answer according to the choices available in each question. You may skip any questions you don’t wish to answer. However, we may not be able to calculate your EDSS score if there is missing information.`,
         text: `Which of the following best describes your ability to walk?`,
+        jumpTo: 'q3.1',
         options: [
             {
                 text: `I can walk without any problem`,
                 score: 0,
-                jumpTo: 'q3',
+                jumpTo: 'q3.1',
                 checked: false
             }, {
                 text: `I have some difficulties with walking, but can walk without aid`,
@@ -48,18 +53,19 @@ export const navMap = {
             }, {
                 text: `I require a wheelchair for almost all activities`,
                 score: 3,
-                jumpTo: 'q3',
+                jumpTo: 'q3.1',
                 checked: false
             }, {
                 text: `I am confined to bed most of the time`,
                 score: 4,
-                jumpTo: 'q3',
+                jumpTo: 'q3.1',
                 checked: false
             }
         ]
     },
     q1b: {
         text: `How far can you walk without needing to use an aid (cane, crutch, walker)?`,
+        jumpTo: 'q2',
         options: [
             {
                 text: `More than 1500 feet, 500 meters or about five football fields`,
@@ -86,6 +92,7 @@ export const navMap = {
     },
     q1c: {
         text: `When I use an aid (cane, crutch, walker), I can walk:`,
+         jumpTo: 'q2',
         options: [
             {
                 text: `About 300 to 400 feet, 120 meters or about 1 football field`,
@@ -117,32 +124,32 @@ export const navMap = {
     },
     q2: {
         text: `When you move about, how often do you use any of the following?`,
-        jumpTo: 'q3',
+        jumpTo: 'q3.1',
         commonOptions: [
             {
                 text: `Never or rarely`,
                 score: 0,
-                jumpTo: 'q3',
+                jumpTo: 'q3.1',
                 checked: false
             }, {
                 text: `Sometimes`,
                 score: 1,
-                jumpTo: 'q3',
+                jumpTo: 'q3.1',
                 checked: false
             }, {
                 text: `Less than half the time`,
                 score: 2,
-                jumpTo: 'q3',
+                jumpTo: 'q3.1',
                 checked: false
             }, {
                 text: `More than half the time`,
                 score: 3,
-                jumpTo: 'q3',
+                jumpTo: 'q3.1',
                 checked: false
             }, {
                 text: `All the time or almost all of the time`,
                 score: 4,
-                jumpTo: 'q3',
+                jumpTo: 'q3.1',
                 checked: false
             }
         ],
@@ -157,10 +164,12 @@ export const navMap = {
         ]
 
     },
-    q3: {
+    'q3.1': {
         text: `Do you have any of the problems below?`,
         isMultiOptions: true,
+        ScreenPage: 0,
         type: 'table',
+        jumpTo: 'q3.2',
         sub: [
             {
                 text: `Change in feeling (e.g. tingling, numbness) in hands, feet, arms or legs?`,
@@ -232,7 +241,17 @@ export const navMap = {
                         checked: false
                     }
                 ]
-            }, {
+            }
+        ]
+    },
+    'q3.2': {
+        text: `Do you have any of the problems below?`,
+        isMultiOptions: true,
+        ScreenPage: 1,
+        type: 'table',
+        jumpTo: 'q3.3',
+        sub: [
+            {
                 text: `Weakness of muscles in your face?`,
                 options: [
                     {
@@ -288,7 +307,17 @@ export const navMap = {
                         checked: false
                     }
                 ]
-            }, {
+            }
+        ]
+    },
+    'q3.3': {
+        text: `Do you have any of the problems below?`,
+        isMultiOptions: true,
+        ScreenPage: 2,
+        type: 'table',
+        jumpTo: 'q3.4',
+        sub: [
+            {
                 text: `Problems with hearing?`,
                 options: [
                     {
@@ -317,7 +346,7 @@ export const navMap = {
                     }
                 ]
             }, {
-                text: `Problems with swallowing?`,
+                text: ` Problems with swallowing?`,
                 options: [
                     {
                         text: `Yes`,
@@ -330,7 +359,16 @@ export const navMap = {
                         checked: false
                     }
                 ]
-            }, {
+            }
+        ]
+    },
+    'q3.4': {
+        text: `Do you have any of the problems below?`,
+        isMultiOptions: true,
+        ScreenPage: 3,
+        type: 'table',
+        sub: [
+            {
                 text: `Constipation or loss of bowel control?`,
                 options: [
                     {
@@ -800,6 +838,7 @@ export const navMap = {
     },
     q16: {
         text: `On an average day, which of the following best describes your…`,
+        section: true,
         sub: [
             {
                 text: `Constipation`,
@@ -844,6 +883,7 @@ export const navMap = {
     },
     q17: {
         text: `In the last 4 weeks`,
+        section: true,
         sub: [
             {
                 text: `How often did you have a sudden and uncomfortable feeling that you had to urinate soon ("urgency")?`,
@@ -1045,23 +1085,38 @@ export const navMap = {
             {
                 text: `Very dissatisfied`,
                 score: 1,
-                checked: false
+                checked: false,
+                jumpTo: (sex) => sex == 'male'
+                    ? 'q24b1'
+                    : 'q24b2',
             }, {
                 text: `Somewhat dissatisfied`,
                 score: 2,
-                checked: false
+                checked: false,
+                jumpTo: (sex) => sex == 'male'
+                    ? 'q24b1'
+                    : 'q24b2',
             }, {
                 text: `Neither dissatisfied nor satisfied`,
                 score: 3,
-                checked: false
+                checked: false,
+                jumpTo: (sex) => sex == 'male'
+                    ? 'q24b1'
+                    : 'q24b2',
             }, {
                 text: `Somewhat satisfied`,
                 score: 4,
-                checked: false
+                checked: false,
+                jumpTo: (sex) => sex == 'male'
+                    ? 'q24b1'
+                    : 'q24b2',
             }, {
                 text: `Very satisfied`,
                 score: 5,
-                checked: false
+                checked: false,
+                jumpTo: (sex) => sex == 'male'
+                    ? 'q24b1'
+                    : 'q24b2',
             }
         ]
     },
@@ -1138,6 +1193,131 @@ export const navMap = {
                 text: `Difficulty having orgasm`
             }, {
                 text: `Ability to satisfy sexual partner`
+            }
+        ]
+    },
+    q25: {
+        text: `On a typical day, how much pain do you experience?`,
+        jumpTo: `q26`,        
+        scale: [
+            {
+                text: `0`,
+                score: 0,
+                checked: false,
+                jumpTo: 'q26'
+            }, {
+                text: `1`,
+                score: 1,
+                checked: false,
+                jumpTo: 'q26'
+            }, {
+                text: `2`,
+                score: 2,
+                checked: false,
+                jumpTo: 'q26'
+            }, {
+                text: `3`,
+                score: 3,
+                checked: false,
+                jumpTo: 'q26'
+            }
+            , {
+                text: `4`,
+                score: 4,
+                checked: false,
+                jumpTo: 'q26'
+            }, {
+                text: `5`,
+                score: 5,
+                checked: false,
+                jumpTo: 'q26'
+            }, {
+                text: `6`,
+                score: 6,
+                checked: false,
+                jumpTo: 'q26'
+            }, {
+                text: `7`,
+                score: 7,
+                checked: false,
+                jumpTo: 'q26'
+            }, {
+                text: `8`,
+                score: 8,
+                checked: false,
+                jumpTo: 'q26'
+            }, {
+                text: `9`,
+                score: 9,
+                checked: false,
+                jumpTo: 'q26'
+            }, {
+                text: `10`,
+                score: 10,
+                checked: false,
+                jumpTo: 'q26'
+            }
+        ]
+    },
+    q26: {
+        text: `Overall, how would you rate your own quality-of-life? Circle one number on the scale below: `,               
+        scale: [
+            {
+                text: `0`,
+                score: 0,
+                checked: false,
+                jumpTo: 'q26'
+            }, {
+                text: `1`,
+                score: 1,
+                checked: false,
+                jumpTo: 'q26'
+            }, {
+                text: `2`,
+                score: 2,
+                checked: false,
+                jumpTo: 'q26'
+            }, {
+                text: `3`,
+                score: 3,
+                checked: false,
+                jumpTo: 'q26'
+            }
+            , {
+                text: `4`,
+                score: 4,
+                checked: false,
+                jumpTo: 'q26'
+            }, {
+                text: `5`,
+                score: 5,
+                checked: false,
+                jumpTo: 'q26'
+            }, {
+                text: `6`,
+                score: 6,
+                checked: false,
+                jumpTo: 'q26'
+            }, {
+                text: `7`,
+                score: 7,
+                checked: false,
+                jumpTo: 'q26'
+            }, {
+                text: `8`,
+                score: 8,
+                checked: false,
+                jumpTo: 'q26'
+            }, {
+                text: `9`,
+                score: 9,
+                checked: false,
+                jumpTo: 'q26'
+            }, {
+                text: `10`,
+                score: 10,
+                checked: false,
+                jumpTo: 'q26'
             }
         ]
     }

@@ -58,5 +58,12 @@
       </div>
     </div>
   </div>  
+  <div *ngIf="pageObject.type=='scale'">
+    <div class="scale-item" >
+      <md-radio-button (change)="change($event)" [value]="option" name="group1" [checked]="option.checked" *ngFor="let option of pageObject.scale">{{option.text}}</md-radio-button>
+    </div>
+    <div> </div>
+    <div> </div>
+  </div>
   <app-navigate [selectedOption]="selectedOption" [pageName]="pageName" [pageObject]="pageObject"></app-navigate>
 </md-card>
