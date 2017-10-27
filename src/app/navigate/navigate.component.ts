@@ -77,9 +77,7 @@ export class NavigateComponent implements OnInit {
     }
   }
 
-  previous() {
-    // let jumpTo; (this.pagesStack.length > 0) && (jumpTo = this.pagesStack.pop());
-    // jumpTo && this   .router   .navigate(['generic1', jumpTo]);
+  previous() {    
     let page = this.pageName;
     if (transitArray.includes(page)) {
       _.forEach(Screen, function (value) {
@@ -91,7 +89,6 @@ export class NavigateComponent implements OnInit {
           }
         });
       });
-
     } 
 
     if (this.pointer > 0) {

@@ -91,7 +91,5 @@ export class Generic1Component implements OnInit {
           Screen[this.pageObject.ScreenPage].push(x.options[0]);
         }
       });
-
-      //navMap.obj1.forEach(x=> x.)
   }
 }
