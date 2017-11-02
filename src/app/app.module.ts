@@ -5,13 +5,14 @@ import {HttpModule} from '@angular/http';
 import {MsShareService} from './ms-share.service';
 import {AppComponent} from './app.component';
 import {ROUTES} from './app.routes';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   // MdButtonModule,
   MdCheckboxModule,
   MdRadioModule,
   MdCardModule,
   MdListModule,
-  MdGridListModule,MatCardModule
+  MdGridListModule,MatCardModule,MatSliderModule
 } from '@angular/material';
 import {AngularMaterialModule} from './angular-material/angular-material.module';
 import { WelcomeaComponent } from './welcomea/welcomea.component';
@@ -32,7 +33,7 @@ import { NavigateComponent } from './navigate/navigate.component';
     NavigateComponent
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(ROUTES, {useHash: true}),HttpModule,
+    BrowserModule, RouterModule.forRoot(ROUTES, {useHash: true}),HttpModule,FormsModule,
     // MdButtonModule,
     MdGridListModule,
     MdCheckboxModule,
@@ -40,7 +41,7 @@ import { NavigateComponent } from './navigate/navigate.component';
     MdCardModule,
     MdListModule,
     AngularMaterialModule,
-    MatCardModule
+    MatCardModule,MatSliderModule
   ],
   providers: [MsShareService],
   bootstrap: [AppComponent]

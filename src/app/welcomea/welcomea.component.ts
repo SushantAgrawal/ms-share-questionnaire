@@ -18,6 +18,7 @@ export class WelcomeaComponent implements OnInit {
   }
 
   next(){
+    //debugger;
     this.router.navigate(['generic1','q1a']);
   }
 }

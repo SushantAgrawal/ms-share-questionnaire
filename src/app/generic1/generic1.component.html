@@ -57,6 +57,40 @@
         <md-radio-button [name]='g' style="display:inline" (change)="change($event)" [value]="option" [checked]="option.checked">{{option.text}}</md-radio-button>
       </div>
     </div>
-  </div>  
+  </div>
+  <div *ngIf="pageObject.type=='scale'">
+    <md-slider (change)="change($event)" [max]="pageObject.max" [min]="pageObject.min" [step]="pageObject.step" [thumb-label]="pageObject.thumbLabel"
+      [tick-interval]="tickInterval" [value]="pageObject.value" [vertical]="vertical"></md-slider>
+  </div>
+  <div *ngIf="pageObject.type=='relapses'">
+    <md-select ariaLabel='Yers' placeholder="Relapses (0-6)" [(ngModel)]="pageObject.value" (change)="change($event)">
+      <md-option *ngFor="let option of pageObject.selectOption" [value]="option">
+        {{ option }}
+      </md-option>
+    </md-select>
+    <div *ngIf="pageObject.value>0">
+      <div *ngFor="let option of ddlCount;  let i = index">
+        <md-select placeholder="Year" [id]="'Year'+i" (change)="changeDDl($event,option,'Year')" [(ngModel)]="pageObject.relapsesYear[i]">
+          <md-option *ngFor="let yers of ddlYearsOption" [value]="yers">
+            {{ yers }}
+          </md-option>
+        </md-select>
+        <md-select placeholder="Month" [id]="'Month'+i" (change)="changeDDl($event,option,'Month')" [(ngModel)]="pageObject.relapsesMonth[i]">
+          <md-option *ngFor="let Month of ddlMonthOption" [value]="Month">
+            {{ Month }}
+          </md-option>
+        </md-select>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="pageObject.type=='patientConcerns'">
+    <section class="example-section">
+      <md-checkbox class="example-margin" *ngFor="let option of pageObject.options;  let i = index" [id]="'cb'+i" [value]="option"
+        [(ngModel)]="option.checked" (change)="changeCheckBox($event)">{{option.text}}</md-checkbox>
+    </section>
+    <div *ngIf="showTextBox">
+      <textarea mdInput placeholder="Other topics?" [(ngModel)]="pageObject.othertext"></textarea>
+    </div>
+  </div>
   <app-navigate [selectedOption]="selectedOption" [pageName]="pageName" [pageObject]="pageObject"></app-navigate>
 </md-card>

@@ -1,31 +1,33 @@
-import {Injectable} from '@angular/core';
-import {Http, URLSearchParams, Headers, RequestOptions} from '@angular/http';
-import {Subject} from 'rxjs/subject';
+import { Injectable } from '@angular/core';
+import { Http, URLSearchParams, Headers, RequestOptions } from '@angular/http';
+import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/filter';
-import {ActivatedRoute, Router} from '@angular/router';
-import {welcomeMap, navMap} from './app.config';
+import { ActivatedRoute, Router } from '@angular/router';
+import { welcomeMap, navMap, urlMaps } from './app.config';
 
 @Injectable()
 export class MsShareService {
   //used to maintain a global object
-  global : any = {};
-  subject : Subject < any >;
-  urlMaps : {};
+  global: any = {};
+  subject: Subject<any>;
+
   messages = {
     idNotMappedToUrl: 'Message id is not mapped to http url in config.ts file at application root',
     httpGetUnknownError: 'Unknown error encountered while making http request'
   };
 
-  constructor(private http : Http, private activatedRoute : ActivatedRoute, private router : Router) {
-    //this.subject = new Subject();
+  constructor(private http: Http, private activatedRoute: ActivatedRoute, private router: Router) {
+
+
+    this.subject = new Subject();
     this.set('navMap', navMap);
     let SearchParams = new URLSearchParams(top.location.search);
     let rawParams = SearchParams.rawParams;
 
     // (() => { values for answered are none, one, all let sampleUrl =
-    // `http://localhost:4300?answered=none`; let sampleUrl = someParam;
+    // `http://localhost:4300?answered=none&Gender=female`; let sampleUrl = someParam;
     let urlArray = rawParams.slice(rawParams.indexOf('?') + 1).split('&');
     let urlObject = urlArray.reduce((prevValue, x, i) => {
       let elementArray = x && x.split('=');
@@ -45,28 +47,29 @@ export class MsShareService {
     this.global[id] = value;
   }
 
-  emit(id : string, options?: any) {
+  emit(id: string, options?: any) {
     this
       .subject
-      .next({id: id, data: options});
+      .next({ id: id, data: options });
   };
 
-  filterOn(id : string) : Observable < any > {
-    return(this.subject.filter(d => (d.id === id)));
+  filterOn(id: string): Observable<any> {
+   // debugger;
+    return (this.subject.filter(d => (d.id === id)));
   };
 
-  httpPost(id : string, body?: any) {
-    let url = this.urlMaps[id];
+  httpPost(id: string, body?: any) {
+    let url = urlMaps[id];
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     this
       .http
-      .post(url, body, {headers: headers})
+      .post(url, body, { headers: headers })
       .map(response => response.json())
       .subscribe(d => {
         this
           .subject
-          .next({id: id, data: d, body: body});
+          .next({ id: id, data: d, body: body });
       }, err => {
         this
           .subject
@@ -79,9 +82,10 @@ export class MsShareService {
       });
   };
 
-  httpGet(id : string, queryParams?: [any], headers?: [any], carryBag?: any) {
+  httpGet(id: string, queryParams?: [any], headers?: [any], carryBag?: any) {
+    //debugger;
     try {
-      let url = this.urlMaps[id];
+      let url = urlMaps[id];
       let myParams = new URLSearchParams();
       queryParams && (queryParams.map(x => myParams.append(x.name, x.value)));
 
@@ -104,33 +108,33 @@ export class MsShareService {
           .subscribe(d => {
             this
               .subject
-              .next({id: id, data: d, carryBag: carryBag});
+              .next({ id: id, data: d, carryBag: carryBag });
           }, err => {
             this
               .subject
-              .next({id: id, error: err});
+              .next({ id: id, error: err });
           });
       } else {
         this
           .subject
-          .next({id: id, error: this.messages.idNotMappedToUrl})
+          .next({ id: id, error: this.messages.idNotMappedToUrl })
       }
     } catch (err) {
       this
         .subject
-        .next({id: id, error: this.messages.httpGetUnknownError})
+        .next({ id: id, error: this.messages.httpGetUnknownError })
     }
   }
 
-  httpPut(id : string, body?: any) {
-    let url = this.urlMaps[id];
+  httpPut(id: string, body?: any) {
+    let url = urlMaps[id];
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     this
       .http
-      .put(url, body, {headers: headers})
+      .put(url, body, { headers: headers })
       .map(response => response.json())
-      .subscribe(d => this.subject.next({id: id, data: d, body: body}), err => this.subject.next({
+      .subscribe(d => this.subject.next({ id: id, data: d, body: body }), err => this.subject.next({
         id: id,
         data: {
           error: err

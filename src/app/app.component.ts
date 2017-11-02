@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {MsShareService} from './ms-share.service';
+import { Component, OnInit } from '@angular/core';
+import { MsShareService } from './ms-share.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,8 @@ import {MsShareService} from './ms-share.service';
 })
 export class AppComponent {
   title = 'app';
-  constructor(private msShareService: MsShareService){
+  constructor(private msShareService: MsShareService) {
     console.log('app.component');
   }
+ 
 }
