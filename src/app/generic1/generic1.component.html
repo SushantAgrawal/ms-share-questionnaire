@@ -48,7 +48,7 @@
       </tbody>
     </table>
   </div>
-  <div *ngIf="pageObject.type=='section'" class="subtable">
+  <div *ngIf="pageObject.type=='division'" class="subtable">
     <div *ngFor="let item of pageObject.sub; let g=index">
       <p>
         <b> {{item.text}}</b>
@@ -59,7 +59,7 @@
     </div>
   </div>
   <div *ngIf="pageObject.type=='scale'">
-    <md-slider (change)="change($event)" [max]="pageObject.max" [min]="pageObject.min" [step]="pageObject.step" [thumb-label]="pageObject.thumbLabel"
+    <md-slider class="msslider" (change)="change($event)" [max]="pageObject.max" [min]="pageObject.min" [step]="pageObject.step" [thumb-label]="pageObject.thumbLabel"
       [tick-interval]="tickInterval" [value]="pageObject.value" [vertical]="vertical"></md-slider>
   </div>
   <div *ngIf="pageObject.type=='relapses'">

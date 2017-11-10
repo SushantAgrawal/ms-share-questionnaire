@@ -41,8 +41,8 @@ export class Generic1Component implements OnInit {
           q.type = 'options';
         } else if (q.header) {
           q.type = 'header'
-        } else if (q.section) {
-          q.type = 'section'
+        } else if (q.division) {
+          q.type = 'division'
         } else if (q.scale) {
           q.type = 'scale'
         } else if (q.relapses) {
@@ -79,23 +79,14 @@ export class Generic1Component implements OnInit {
     this.ddlCount = relapses ? _.range(this.pageObject.value) : 0;
     let d = new Date();
     let year = d.getFullYear();
+    year=year+1;
     //let
     this.ddlYearsOption = _.range(2012, 2018, 1);
     this.ddlMonthOption = _.range(1, 13);
   }
 
   ngOnInit() { 
-   /*  debugger;
-    this.msShareService.httpGet('allQuestionnaire', [
-      {
-        name: 'pom_id',
-        value: '82043'
-      }
-    ]);
-
-this.msShareService.filterOn('allQuestionnaire').subscribe(d => {
-        console.log(d);
-      })  */
+   
   }
 
   change(event) {

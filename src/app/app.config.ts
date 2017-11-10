@@ -3,7 +3,11 @@ export const welcomeMap = {
     one: 'welcomeb',
     all: 'welcomec'
 };
-export const urlMaps= {allQuestionnaire:'https://private-anon-898cfb6cb7-neuroshareapis.apiary-mock.com/neuroshare/api/all-questionnaire-responses'};
+export const pagesStack: string[] = [];
+export const urlMaps = {
+    questionaires: 'https://private-anon-898cfb6cb7-neuroshareapis.apiary-mock.com/neuroshare/api/all-questionnaire-responses/',
+    questionaires1: 'http://localhost:8081/listUsers'
+};
 export const transitArray = [
     'q3.1',
     'q3.2',
@@ -35,17 +39,20 @@ export const navMap = {
         descr2: `Please try your best to answer according to the choices available in each question. You may skip any questions you don’t wish to answer. However, we may not be able to calculate your EDSS score if there is missing information.`,
         text: `Which of the following best describes your ability to walk?`,
         jumpTo: 'q3.1',
+        qx_code: "Q001.1",
+        section: "Mobility",
+        edss: "Yes",
         options: [
             {
                 text: `I can walk without any problem`,
                 score: 0,
                 jumpTo: 'q3.1',
-                checked: false
+                checked: false,
             }, {
                 text: `I have some difficulties with walking, but can walk without aid`,
                 score: 1,
                 jumpTo: 'q1b',
-                checked: false
+                checked: false,
             }, {
                 text: `I require a cane, crutch, or other aid to walk`,
                 score: 2,
@@ -67,6 +74,9 @@ export const navMap = {
     q1b: {
         text: `How far can you walk without needing to use an aid (cane, crutch, walker)?`,
         jumpTo: 'q2',
+        qx_code: "Q001.2",
+        section: "Mobility",
+        edss: "Yes",
         options: [
             {
                 text: `More than 1500 feet, 500 meters or about five football fields`,
@@ -94,6 +104,9 @@ export const navMap = {
     q1c: {
         text: `When I use an aid (cane, crutch, walker), I can walk:`,
         jumpTo: 'q2',
+        qx_code: "Q001.3",
+        section: "Mobility",
+        edss: "Yes",
         options: [
             {
                 text: `About 300 to 400 feet, 120 meters or about 1 football field`,
@@ -126,6 +139,8 @@ export const navMap = {
     q2: {
         text: `When you move about, how often do you use any of the following?`,
         jumpTo: 'q3.1',
+        section: "Mobility Aid",
+        edss: "Yes",
         commonOptions: [
             {
                 text: `Never or rarely`,
@@ -156,11 +171,14 @@ export const navMap = {
         ],
         sub: [
             {
-                text: `A cane, crutch, or someone to hold on to.`
+                text: `A cane, crutch, or someone to hold on to.`,
+                qx_code: "Q002.1",
             }, {
-                text: ` A walker or other bilateral support.`
+                text: ` A walker or other bilateral support.`,
+                qx_code: "Q002.2",
             }, {
-                text: `A wheelchair.`
+                text: `A wheelchair.`,
+                qx_code: "Q002.3",
             }
         ]
 
@@ -171,9 +189,12 @@ export const navMap = {
         screenPage: 0,
         type: 'table',
         jumpTo: 'q3.2',
+        section: "Screening Questions",
+        edss: "No",
         sub: [
             {
                 text: `Change in feeling (e.g. tingling, numbness) in hands, feet, arms or legs?`,
+                qx_code: "Q003.1",
                 options: [
                     {
                         text: `Yes`,
@@ -188,6 +209,7 @@ export const navMap = {
                 ]
             }, {
                 text: `Weakness in arms or legs?`,
+                qx_code: "Q003.2",
                 options: [
                     {
                         text: `Yes`,
@@ -202,6 +224,7 @@ export const navMap = {
                 ]
             }, {
                 text: `Spasms (brief muscle contractions) or stiffness (spasticity) in arms or legs?`,
+                qx_code: "Q003.3",
                 options: [
                     {
                         text: `Yes`,
@@ -216,6 +239,7 @@ export const navMap = {
                 ]
             }, {
                 text: `Swaying or losing balance when sitting, standing, or walking?`,
+                qx_code: "Q003.4",
                 options: [
                     {
                         text: `Yes`,
@@ -230,6 +254,7 @@ export const navMap = {
                 ]
             }, {
                 text: `Clumsiness or tremors in arms or legs?`,
+                qx_code: "Q003.5",
                 options: [
                     {
                         text: `Yes`,
@@ -251,9 +276,12 @@ export const navMap = {
         screenPage: 1,
         type: 'table',
         jumpTo: 'q3.3',
+        section: "Screening Questions",
+        edss: "No",
         sub: [
             {
                 text: `Weakness of muscles in your face?`,
+                qx_code: "Q003.6",
                 options: [
                     {
                         text: `Yes`,
@@ -268,6 +296,7 @@ export const navMap = {
                 ]
             }, {
                 text: `Numbness in your face?`,
+                qx_code: "Q003.7",
                 options: [
                     {
                         text: `Yes`,
@@ -282,6 +311,7 @@ export const navMap = {
                 ]
             }, {
                 text: `Blurry vision or blind spots?`,
+                qx_code: "Q003.8",
                 options: [
                     {
                         text: `Yes`,
@@ -296,6 +326,7 @@ export const navMap = {
                 ]
             }, {
                 text: `Double vision?`,
+                qx_code: "Q003.9",
                 options: [
                     {
                         text: `Yes`,
@@ -317,9 +348,12 @@ export const navMap = {
         screenPage: 2,
         type: 'table',
         jumpTo: 'q3.4',
+        section: "Screening Questions",
+        edss: "No",
         sub: [
             {
                 text: `Problems with hearing?`,
+                qx_code: "Q003.10",
                 options: [
                     {
                         text: `Yes`,
@@ -334,6 +368,7 @@ export const navMap = {
                 ]
             }, {
                 text: `Problems with voice?`,
+                qx_code: "Q003.11",
                 options: [
                     {
                         text: `Yes`,
@@ -348,6 +383,7 @@ export const navMap = {
                 ]
             }, {
                 text: ` Problems with swallowing?`,
+                qx_code: "Q003.12",
                 options: [
                     {
                         text: `Yes`,
@@ -368,9 +404,12 @@ export const navMap = {
         isMultiOptions: true,
         screenPage: 3,
         type: 'table',
+        section: "Screening Questions",
+        edss: "No",
         sub: [
             {
                 text: `Constipation or loss of bowel control?`,
+                qx_code: "Q003.13",
                 options: [
                     {
                         text: `Yes`,
@@ -385,6 +424,7 @@ export const navMap = {
                 ]
             }, {
                 text: `Loss of bladder control or leakage?`,
+                qx_code: "Q003.14",
                 options: [
                     {
                         text: `Yes`,
@@ -399,6 +439,7 @@ export const navMap = {
                 ]
             }, {
                 text: `Difficulty starting to urinate?`,
+                qx_code: "Q003.15",
                 options: [
                     {
                         text: `Yes`,
@@ -413,6 +454,7 @@ export const navMap = {
                 ]
             }, {
                 text: `Concentration, memory, or thinking problems?`,
+                qx_code: "Q003.16",
                 options: [
                     {
                         text: `Yes`,
@@ -430,6 +472,8 @@ export const navMap = {
     },
     q4: {
         text: `On an average day, check the answer that best describes your sensation (feeling, numbness, ability to sense touch or hot or cold) in your:`,
+        section: "Sensory",
+        edss: "Yes",
         commonOptions: [
             {
                 text: `Feeling is very good - No problems`,
@@ -455,18 +499,24 @@ export const navMap = {
         ],
         sub: [
             {
-                text: `Right hand or arm`
+                text: `Right hand or arm`,
+                qx_code: "Q004.1",
             }, {
-                text: `Left hand or arm`
+                text: `Left hand or arm`,
+                qx_code: "Q004.2",
             }, {
-                text: `Right foot or leg`
+                text: `Right foot or leg`,
+                qx_code: "Q004.3",
             }, {
-                text: `Left foot or leg`
+                text: `Left foot or leg`,
+                qx_code: "Q004.4",
             }
         ]
     },
     q5: {
         text: `In general, how much strength do you have to raise each arm and leg in the air?`,
+        section: "Limb Strength",
+        edss: "Yes",
         commonOptions: [
             {
                 text: `Feeling is very good - No problems`,
@@ -492,19 +542,25 @@ export const navMap = {
         ],
         sub: [
             {
-                text: `Right Arm`
+                text: `Right Arm`,
+                qx_code: "Q005.1",
             }, {
-                text: `Left Arm`
+                text: `Left Arm`,
+                qx_code: "Q005.2",
             }, {
-                text: `Right Leg`
+                text: `Right Leg`,
+                qx_code: "Q005.3",
             }, {
-                text: `Left Leg`
+                text: `Left Leg`,
+                qx_code: "Q005.4",
             }
         ]
     },
     q6: {
         text: `In general, do muscle spasms or stiffness ("spasticity") make it hard for you to use (bend or straighten) your arms and legs?`,
         header: `Stiffness and spasms…`,
+        section: "Spasms and Stiffness",
+        edss: "Yes",
         commonOptions: [
             {
                 text: `I do not have stiffness or spasms`,
@@ -530,21 +586,28 @@ export const navMap = {
         ],
         sub: [
             {
-                text: `Right Arm`
+                text: `Right Arm`,
+                qx_code: "Q006.1",
             }, {
-                text: `Left Arm`
+                text: `Left Arm`,
+                qx_code: "Q006.2",
             }, {
-                text: `Right Leg`
+                text: `Right Leg`,
+                qx_code: "Q006.3",
             }, {
-                text: `Left Leg`
+                text: `Left Leg`,
+                qx_code: "Q006.4",
             }
         ]
     },
     q7: {
-        section: true,
+        division: true,
+        section: "Balance",
+        edss: "Yes",
         sub: [
             {
                 text: `In general, how is your balance when standing?`,
+                qx_code: "Q007.1",
                 options: [
                     {
                         text: `Very good. I never or rarely lose my balance.`,
@@ -566,6 +629,7 @@ export const navMap = {
                 ]
             }, {
                 text: `In general, how is your balance when walking a straight line?`,
+                qx_code: "Q007.2",
                 options: [
                     {
                         text: `I can easily walk a straight line`,
@@ -591,6 +655,7 @@ export const navMap = {
                 ]
             }, {
                 text: `In general, how is your Balance when sitting?`,
+                qx_code: "Q007.3",
                 options: [
                     {
                         text: `I am very steady when I sit`,
@@ -619,6 +684,8 @@ export const navMap = {
     },
     q8: {
         text: `In general, do tremors or coordination problems make it hard for you to use your arms and legs?`,
+        section: "Limb Coordination",
+        edss: "Yes",
         commonOptions: [
             {
                 text: `I do not have tremors or coordination problems`,
@@ -644,14 +711,18 @@ export const navMap = {
         ],
         sub: [
             {
-                text: `Your arm(s)?`
+                text: `Your arm(s)?`,
+                qx_code: "Q008.1",
             }, {
-                text: `Your leg(s)?`
+                text: `Your leg(s)?`,
+                qx_code: "Q008.2",
             }
         ]
     },
     q9: {
         text: `In general, how much muscle weakness do you have in your face?`,
+        section: "Muscle weakness in face",
+        edss: "Yes",
         commonOptions: [
             {
                 text: `I do not have muscle weakness in my face`,
@@ -673,14 +744,18 @@ export const navMap = {
         ],
         sub: [
             {
-                text: `Right side of your face`
+                text: `Right side of your face`,
+                qx_code: "Q009.1",
             }, {
-                text: `Left side of your face`
+                text: `Left side of your face`,
+                qx_code: "Q009.2",
             }
         ]
     },
     q10: {
         text: `In general, how much feeling do you have in your face?`,
+        section: "Loss of sensation in the face",
+        edss: "Yes",
         commonOptions: [
             {
                 text: `Feeling is very good. No numbness or pain.`,
@@ -706,14 +781,18 @@ export const navMap = {
         ],
         sub: [
             {
-                text: `Right side of your face`
+                text: `Right side of your face`,
+                qx_code: "Q010.1",
             }, {
-                text: `Left side of your face`
+                text: `Left side of your face`,
+                qx_code: "Q010.2",
             }
         ]
     },
     q11: {
         text: `Check the answer that best describes your ability to see. If you wear glasses or contact lenses, describe your corrected vision.`,
+        section: "Vision",
+        edss: "Yes",
         commonOptions: [
             {
                 text: `I have no problems with my ability to see.`,
@@ -735,14 +814,19 @@ export const navMap = {
         ],
         sub: [
             {
-                text: `Problems with vision in your right eye`
+                text: `Problems with vision in your right eye`,
+                qx_code: "Q011.1",
             }, {
-                text: `Problems with vision in your left eye`
+                text: `Problems with vision in your left eye`,
+                qx_code: "Q011.2",
             }
         ]
     },
     q12: {
         text: `Do you have double vision?`,
+        qx_code: "Q012",
+        section: "Double Vision",
+        edss: "Yes",
         options: [
             {
                 text: `I do NOT have any double vision`,
@@ -765,6 +849,9 @@ export const navMap = {
     },
     q13: {
         text: `Do you have any problems with your hearing?`,
+        qx_code: "Q013",
+        section: "Hearing",
+        edss: "Yes",
         options: [
             {
                 text: `I do not have problems hearing`,
@@ -787,6 +874,9 @@ export const navMap = {
     },
     q14: {
         text: `In general, how is your ability to speak?`,
+        qx_code: "Q014",
+        section: "Speech",
+        edss: "Yes",
         options: [
             {
                 text: `I do not have problems speaking`,
@@ -817,6 +907,9 @@ export const navMap = {
     },
     q15: {
         text: `For an average day, check the one answer that best describes your ability to swallow liquids and solids.`,
+        qx_code: "Q015",
+        section: "Swallowing",
+        edss: "Yes",
         options: [
             {
                 text: `I do NOT have any problems swallowing liquids or foods`,
@@ -839,10 +932,13 @@ export const navMap = {
     },
     q16: {
         text: `On an average day, which of the following best describes your…`,
-        section: true,
+        division: true,
+        section: "Bowel Functioning",
+        edss: "Yes",
         sub: [
             {
                 text: `Constipation`,
+                qx_code: "Q016.1",
                 options: [
                     {
                         text: `No constipation`,
@@ -860,6 +956,7 @@ export const navMap = {
                 ]
             }, {
                 text: `Bowel frequency`,
+                qx_code: "Q016.2",
                 options: [
                     {
                         text: `I do not have bowel frequency`,
@@ -884,10 +981,13 @@ export const navMap = {
     },
     q17: {
         text: `In the last 4 weeks`,
-        section: true,
+        division: true,
+        section: "Urinary Incontinence",
+        edss: "Yes",
         sub: [
             {
                 text: `How often did you have a sudden and uncomfortable feeling that you had to urinate soon ("urgency")?`,
+                qx_code: "Q017.1",
                 options: [
                     {
                         text: `Never or rarely`,
@@ -913,6 +1013,7 @@ export const navMap = {
                 ]
             }, {
                 text: `How often did you leak urine without meaning to, even a small amount?`,
+                qx_code: "Q017.2",
                 options: [
                     {
                         text: `Never or rarely`,
@@ -941,6 +1042,7 @@ export const navMap = {
         Sub2: [
             {
                 text: `Do you wear a pad or use a urinal?`,
+                qx_code: "Q018",
                 options: [
                     {
                         text: `No`,
@@ -957,6 +1059,9 @@ export const navMap = {
     },
     q19: {
         text: `On an average day,How easy it is for you to start urinating?`,
+        qx_code: "Q019",
+        section: "Urinary Incontinence",
+        edss: "Yes",
         options: [
             {
                 text: `I do NOT have trouble with starting to urinate`,
@@ -988,6 +1093,9 @@ export const navMap = {
     },
     q20: {
         text: `On an average day, which of the following best describes your cognitive (thinking) ability?`,
+        qx_code: "Q020",
+        section: "Cognition",
+        edss: "Yes",
         options: [
             {
                 text: `I have no problems with concentration or memory`,
@@ -1018,7 +1126,10 @@ export const navMap = {
     },
     q21: {
         text: `On an average day, which of the following describes your fatigue?`,
+        qx_code: "Q021",
         jumpTo: 'q22',
+        section: "Fatigue",
+        edss: "Yes",
         options: [
             {
                 text: `I experience no fatigue`,
@@ -1048,7 +1159,10 @@ export const navMap = {
     },
     q22: {
         text: `Did you feel rested on waking in the morning?`,
+        qx_code: "Q022",
         jumpTo: 'q24a',
+        section: "Sleep (MSQOL-54)",
+        edss: "No",
         options: [
             {
                 text: `All of the Time`,
@@ -1085,6 +1199,9 @@ export const navMap = {
     },
     q24a: {
         text: `Overall, how satisfied were you with your sexual function during the past 4 weeks?`,
+        qx_code: "Q024a",
+        section: "Sexual Function",
+        edss: "No",
         jumpTo: (sex) => sex == 'male'
             ? 'q24b1'
             : 'q24b2',
@@ -1130,6 +1247,8 @@ export const navMap = {
     q24b1: {
         text: `How much of a problem was each of the following for you during the past 4 weeks?`,
         jumpTo: `q25`,
+        section: "Sexual Function",
+        edss: "No",
         commonOptions: [
             {
                 text: `Not a problem`,
@@ -1155,19 +1274,25 @@ export const navMap = {
         ],
         sub: [
             {
-                text: `Lack of sexual interest`
+                text: `Lack of sexual interest`,
+                qx_code: "Q024b.1",
             }, {
-                text: `Difficulty getting or keeping an erection`
+                text: `Difficulty getting or keeping an erection`,
+                qx_code: "Q024b.2",
             }, {
-                text: `Difficulty having orgasm`
+                text: `Difficulty having orgasm`,
+                qx_code: "Q024b.3",
             }, {
-                text: `Ability to satisfy sexual partner`
+                text: `Ability to satisfy sexual partner`,
+                qx_code: "Q024b.4",
             }
         ]
     },
     q24b2: {
         text: `How much of a problem was each of the following for you during the past 4 weeks?`,
         jumpTo: `q25`,
+        section: "Sexual Function",
+        edss: "No",
         commonOptions: [
             {
                 text: `Not a problem`,
@@ -1193,18 +1318,19 @@ export const navMap = {
         ],
         sub: [
             {
-                text: `Lack of sexual interest`
+                text: `Lack of sexual interest`,
             }, {
-                text: `Inadequate lubrication`
+                text: `Inadequate lubrication`,
             }, {
-                text: `Difficulty having orgasm`
+                text: `Difficulty having orgasm`,
             }, {
-                text: `Ability to satisfy sexual partner`
+                text: `Ability to satisfy sexual partner`,
             }
         ]
     },
     q25: {
         text: `On a typical day, how much pain do you experience?`,
+        qx_code: "Q025",
         jumpTo: `q26`,
         scale: true,
         max: 10,
@@ -1212,10 +1338,13 @@ export const navMap = {
         showTicks: true,
         step: 1,
         thumbLabel: true,
-        value: 0
+        value: 0,
+        section: "Pain",
+        edss: "No"
     },
     q26: {
         text: `Overall, how would you rate your own quality-of-life? Circle one number on the scale below: `,
+        qx_code: "Q026",
         scale: true,
         max: 10,
         min: 0,
@@ -1224,11 +1353,18 @@ export const navMap = {
         thumbLabel: true,
         value: 0,
         jumpTo: `q27`,
+        section: "Quality of Life",
+        edss: "No"
     },
     q27: {
+        descr1: `The next two questions ask about relapses.  A relapse is when MS symptoms flare up. The symptom might be new or significantly worse than before. Relapses generally: `,
+      //  descr2: `<ul><li>Last for more than 24 hours</li><li>Begin 30 days or more after your last relapse began</li><li>Are not related to an infection, fever, or other stresses</li></ul>`,
         text: `How many relapses have you had since your last visit (drop-down with 0-6): `,
+        qx_code: "Q027",
         jumpTo: `q29`,
         relapses: true,
+        section: "Relapse",
+        edss: "No",
         selectOption: [0, 1, 2, 3, 4, 5, 6],
         value: 0,
         relapsesYear: {
@@ -1250,9 +1386,12 @@ export const navMap = {
     },
     q29: {
         text: `Select all that apply `,
+        qx_code: "Q029",
         descr1: `Use this section to note any topics you’d like to discuss at your next appointment.`,
         patientConcerns: true,
-        jumpTo: 'ReviewPage',
+        //jumpTo: 'ReviewPage',
+        section: "Patient Concerns",
+        edss: "No",
         options: [
             {
                 text: `Medication concerns`,
@@ -1278,13 +1417,13 @@ export const navMap = {
                 text: `Other topics?`,
                 score: 1,
                 checked: false,
-                TextBox:'hidden'
+                TextBox: 'hidden'
                 // jumpTo: 'q25'
             }
         ],
-        othertext:''
+        othertext: ''
     },
-    ReviewPage:{
+    ReviewPage: {
 
     }
 };

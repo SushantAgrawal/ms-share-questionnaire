@@ -1,5 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <!-- <app-welcome></app-welcome> -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<router-outlet></router-outlet>
+<!-- -->
+<div class="loader" [class.loader-hidden]="isHide">
+    <div class="loader-overlay">
+        <md-progress-spinner mode="indeterminate"></md-progress-spinner>
+    </div>
+</div>
 
+<router-outlet></router-outlet>

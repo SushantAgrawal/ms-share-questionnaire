@@ -25,20 +25,28 @@ md-radio-button {
 .scale-item .mat-radio-button{
    margin-right: 25px;
 }
-md-slider {
-  width: 300px;
-}
-.example-h2 {
-  margin: 10px;
-}
-
-.example-section {
-  display: flex;
-  align-content: center;
-  align-items: center;
-  height: 60px;
+  .msslider{width: 300px;}
+  md-slider[md-discrete]:not([disabled]):focus .md-sign,
+md-slider[md-discrete]:not([disabled]):focus .md-sign:after,
+md-slider[md-discrete]:not([disabled]).active .md-sign,
+md-slider[md-discrete]:not([disabled]).active .md-sign:after {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0) scale(1);
+  transform: translate3d(0, 0, 0) scale(1);
 }
 
-.example-margin {
-  margin: 0 10px;
+::ng-deep .msslider .mat-slider-thumb-label {
+    transform: rotate(45deg) !important;
+    border-radius: 50% 50% 0 !important;
+  }
+  
+  ::ng-deep .msslider .mat-slider-thumb {
+    transform: scale(0) !important;
+  }
+  
+  ::ng-deep .msslider .mat-slider-thumb-label-text {
+    opacity: 1 !important;
+  }
+.mat-slider-min-value.mat-slider-thumb-label-showing .mat-slider-thumb-label{
+    color: #ffffff!important;
 }
