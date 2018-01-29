@@ -5,8 +5,8 @@ export const welcomeMap = {
 };
 export const pagesStack: string[] = [];
 export const urlMaps = {
-    questionaires: 'https://private-anon-898cfb6cb7-neuroshareapis.apiary-mock.com/neuroshare/api/all-questionnaire-responses/',
-    questionaires1: 'http://localhost:8081/listUsers'
+    questionaires1: 'https://private-anon-898cfb6cb7-neuroshareapis.apiary-mock.com/neuroshare/api/all-questionnaire-responses/',
+    questionaires: 'http://localhost:3000/all-questionnaire-responses'
 };
 export const transitArray = [
     'q3.1',
