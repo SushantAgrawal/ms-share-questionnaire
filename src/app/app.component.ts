@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   isHide:boolean;
   constructor(private msShareService: MsShareService) {
     this.patientId = this.msShareService.get('queryParams').patientid || '82043';//82043
-    this.isHide=false;
+    this.isHide=true;
   }
   ngOnInit() {
 
@@ -33,57 +33,57 @@ export class AppComponent implements OnInit {
         }
       });
     });
-    this.msShareService.httpGet('questionaires', [
-      {
-        name: 'pom_id',
-        value: this.patientId
-      }
-    ]);
-    this.msShareService.filterOn('questionaires').subscribe(d => {
+    // this.msShareService.httpGet('questionaires', [
+    //   {
+    //     name: 'pom_id',
+    //     value: this.patientId
+    //   }
+    // ]);
+    // this.msShareService.filterOn('questionaires').subscribe(d => {
   
-      let responses = d.data.questionaires['0'].responses;
+    //   let responses = d.data.questionaires['0'].responses;
 
-      _.forEach(navMap, function (value, key) {
-        let options = navMap[key].options;
-        pageObj = navMap[key];
-        let sub = pageObj.sub;
-        let obj = _.find(responses, ['qx_code', value.qx_code]);
-        if (obj) {
-          options && options.forEach(x => {
-            if (x.text == obj.answer_text) {
-              x.checked = true;
-            }
-          })
-        }
+    //   _.forEach(navMap, function (value, key) {
+    //     let options = navMap[key].options;
+    //     pageObj = navMap[key];
+    //     let sub = pageObj.sub;
+    //     let obj = _.find(responses, ['qx_code', value.qx_code]);
+    //     if (obj) {
+    //       options && options.forEach(x => {
+    //         if (x.text == obj.answer_text) {
+    //           x.checked = true;
+    //         }
+    //       })
+    //     }
 
-        let commonOptions = pageObj.commonOptions;
-        sub && sub.forEach(y => {
-          obj = _.find(responses, ['qx_code', y.qx_code]);
-          if (obj) {
-            y.options.forEach(x => {
-              if (x.text == obj.answer_text) {
-                x.checked = true;
-              }
-            })
-          }
-        });
-      })
-      /*
-      _.forEach(this.responses, function (value, key) {
-        debugger;
-        let obj = _.find(navMap, ['qx_code', value.qx_code]);
-        if (obj) {         
-          obj.options.forEach(x => {
-            if(x.text== value.answer_text)
-              {
-                x.checked=true;
-              }
-          })
+    //     let commonOptions = pageObj.commonOptions;
+    //     sub && sub.forEach(y => {
+    //       obj = _.find(responses, ['qx_code', y.qx_code]);
+    //       if (obj) {
+    //         y.options.forEach(x => {
+    //           if (x.text == obj.answer_text) {
+    //             x.checked = true;
+    //           }
+    //         })
+    //       }
+    //     });
+    //   })
+    //   /*
+    //   _.forEach(this.responses, function (value, key) {
+    //     debugger;
+    //     let obj = _.find(navMap, ['qx_code', value.qx_code]);
+    //     if (obj) {         
+    //       obj.options.forEach(x => {
+    //         if(x.text== value.answer_text)
+    //           {
+    //             x.checked=true;
+    //           }
+    //       })
 
-        } 
-      });*/
-      this.isHide=true;
-    })
+    //     } 
+    //   });*/
+    //   this.isHide=true;
+    // })
 
   }
 
